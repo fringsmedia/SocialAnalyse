@@ -1,0 +1,12 @@
+# Supabase-CLI-Konfiguration für die lokale Entwicklung.
+# `supabase start` in packages/db ausführen (Docker erforderlich).
+project_id = "creative-intelligence"
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000/auth/callback"]
+
+[auth.email]
+# Lokal ohne E-Mail-Bestätigung – Registrierung liefert sofort eine Session.
+# In der Cloud ist die Bestätigung aktiv; /auth/callback verarbeitet den Link.
+enable_confirmations = false

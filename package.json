@@ -1,0 +1,17 @@
+{
+  "name": "creative-intelligence",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @ci/web dev",
+    "dev:worker": "pnpm --filter @ci/worker dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "db:seed": "pnpm --filter @ci/db seed",
+    "db:types": "supabase gen types typescript --local --schema public > packages/db/src/database.types.ts"
+  }
+}

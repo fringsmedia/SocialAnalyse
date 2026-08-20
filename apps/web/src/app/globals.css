@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/*
+ * Design-System "warm, ruhig, editorial".
+ * Werte gespiegelt in src/lib/design-tokens.ts – beide Seiten
+ * synchron halten.
+ */
+@theme {
+  --color-canvas: #f4f4f2;
+  --color-surface: #ffffff;
+  --color-surface-2: #ededeb;
+  --color-ink: #111111;
+  --color-ink-2: #6b6b6b;
+  --color-ink-3: #a3a3a3;
+  --color-accent: #e8634a;
+  --color-accent-hover: #d4573f;
+
+  --radius-card: 24px;
+  --radius-container: 32px;
+  --radius-thumb: 16px;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-overlay-in: overlay-in 0.3s var(--ease-out-quart) both;
+  --animate-panel-in: panel-in 0.45s var(--ease-out-quart) both;
+
+  @keyframes overlay-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Zahlen laufen überall tabellarisch – Kennzahlen springen nicht. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

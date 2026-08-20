@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Builds
+.next/
+out/
+dist/
+*.tsbuildinfo
+
+# Env – niemals echte Keys committen
+.env
+.env.*
+!.env.example
+
+# Supabase local
+packages/db/supabase/.branches
+packages/db/supabase/.temp
+
+# Misc
+.DS_Store
+*.log
+.vercel
+.turbo
+coverage/
