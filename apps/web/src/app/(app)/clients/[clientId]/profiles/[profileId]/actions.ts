@@ -4,7 +4,11 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import type { Json } from "@ci/db";
-import { industryProfileSchema, runConfigSchema } from "@ci/shared";
+import {
+  industryProfileSchema,
+  RATE_LIMITS,
+  runConfigSchema,
+} from "@ci/shared";
 import { getAuthContext } from "@/lib/auth";
 import { getMessages } from "@/lib/i18n/de";
 
@@ -70,6 +74,23 @@ export async function startRunAction(
   const { supabase, user, profile } = await loadOwnProfile(profileId);
   if (!user || !profile || profile.status !== "draft") {
     return { error: m.wizard.errors.generic };
+  }
+
+  // Rate Limit: parallel laufende Analysen pro Organisation begrenzen.
+  const { count: activeRuns } = await supabase
+    .from("analysis_runs")
+    .select("id", { count: "exact", head: true })
+    .eq("organization_id", profile.organization_id)
+    .in("status", [
+      "queued",
+      "collecting",
+      "filtering",
+      "scoring",
+      "analyzing",
+      "synthesizing",
+    ]);
+  if ((activeRuns ?? 0) >= RATE_LIMITS.maxActiveRuns) {
+    return { error: m.limits.runs };
   }
 
   const { error: profileError } = await supabase

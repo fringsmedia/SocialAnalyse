@@ -1,8 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { formatCompactNumber, type PhaseCounts } from "@ci/shared";
+import {
+  formatCompactNumber,
+  type CostBreakdown,
+  type PhaseCounts,
+} from "@ci/shared";
 import { getMessages } from "@/lib/i18n/de";
+import { CostSection } from "./cost-section";
 import { CreativeDrawer } from "./creative-drawer";
 import { PatternReportTab, type ReportView } from "./pattern-report-tab";
 import { RunResults, type CreativeLite } from "./run-results";
@@ -18,6 +23,7 @@ export function ResultsShell({
   videos,
   ads,
   report,
+  costBreakdown,
 }: {
   clientName: string;
   orgId: string;
@@ -25,6 +31,7 @@ export function ResultsShell({
   videos: CreativeLite[];
   ads: CreativeLite[];
   report?: ReportView | null;
+  costBreakdown?: CostBreakdown;
 }) {
   const m = getMessages();
   const [selected, setSelected] = React.useState<CreativeLite | null>(null);
@@ -66,6 +73,11 @@ export function ResultsShell({
           ) : undefined
         }
       />
+      {costBreakdown ? (
+        <div className="mt-10">
+          <CostSection breakdown={costBreakdown} />
+        </div>
+      ) : null}
       <CreativeDrawer
         item={selected}
         orgId={orgId}

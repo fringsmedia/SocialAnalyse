@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import type { Json } from "@ci/db";
+import { RATE_LIMITS } from "@ci/shared";
 import { generationInputSchema } from "@ci/shared/prompts";
 import { getAuthContext } from "@/lib/auth";
 import { getMessages } from "@/lib/i18n/de";
@@ -40,6 +41,16 @@ export async function startGenerationAction(
     .maybeSingle();
   if (!run || run.status !== "completed") {
     return { error: m.generator.form.errors.generic };
+  }
+
+  // Rate Limit: parallel laufende Generierungen pro Organisation.
+  const { count: activeGenerations } = await supabase
+    .from("generations")
+    .select("id", { count: "exact", head: true })
+    .eq("organization_id", run.organization_id)
+    .in("status", ["pending", "running"]);
+  if ((activeGenerations ?? 0) >= RATE_LIMITS.maxActiveGenerations) {
+    return { error: m.limits.generations };
   }
 
   const { data: generation, error: insertError } = await supabase

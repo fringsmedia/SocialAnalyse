@@ -563,6 +563,42 @@ export interface Database {
         };
         Relationships: [];
       };
+      subscriptions: {
+        Row: {
+          id: string;
+          organization_id: string;
+          stripe_customer_id: string | null;
+          stripe_subscription_id: string | null;
+          plan: string;
+          status: string;
+          current_period_end: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          organization_id: string;
+          stripe_customer_id?: string | null;
+          stripe_subscription_id?: string | null;
+          plan?: string;
+          status?: string;
+          current_period_end?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          organization_id?: string;
+          stripe_customer_id?: string | null;
+          stripe_subscription_id?: string | null;
+          plan?: string;
+          status?: string;
+          current_period_end?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
       job_queue: {
         Row: {
           id: string;
@@ -638,6 +674,19 @@ export interface Database {
       create_organization: {
         Args: { p_name: string; p_slug: string };
         Returns: Database["public"]["Tables"]["organizations"]["Row"];
+      };
+      accept_invite: {
+        Args: { p_token: string };
+        Returns: Database["public"]["Tables"]["organizations"]["Row"];
+      };
+      org_members_with_email: {
+        Args: { p_org_id: string };
+        Returns: {
+          user_id: string;
+          email: string;
+          role: MemberRole;
+          created_at: string;
+        }[];
       };
       claim_next_job: {
         Args: { p_worker_id: string; p_job_types?: string[] | null };

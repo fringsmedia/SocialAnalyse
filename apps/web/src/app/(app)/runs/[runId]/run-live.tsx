@@ -4,7 +4,12 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import { Check, X } from "@phosphor-icons/react/dist/ssr";
 import type { Tables } from "@ci/db";
-import { formatCompactNumber, type PhaseCounts, type RunStatus } from "@ci/shared";
+import {
+  formatCompactNumber,
+  type CostBreakdown,
+  type PhaseCounts,
+  type RunStatus,
+} from "@ci/shared";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { getMessages } from "@/lib/i18n/de";
 import { cn } from "@/lib/utils";
@@ -12,7 +17,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Stat } from "@/components/ui/stat";
-import { cancelRunAction } from "./actions";
+import { cancelRunAction, retryRunAction } from "./actions";
+import { CostSection } from "./cost-section";
 
 type RunRow = Tables<"analysis_runs">;
 
@@ -177,6 +183,19 @@ export function RunLive({
                 {m.run.cancel}
               </Button>
             ) : null}
+            {status === "failed" ? (
+              <Button
+                size="sm"
+                disabled={pending}
+                onClick={() =>
+                  startTransition(async () => {
+                    await retryRunAction(run.id);
+                  })
+                }
+              >
+                {pending ? m.common.loading : m.run.retry}
+              </Button>
+            ) : null}
           </div>
         </div>
       </section>
@@ -274,6 +293,10 @@ export function RunLive({
           </li>
         </ol>
       </Card>
+
+      {status === "failed" || status === "cancelled" ? (
+        <CostSection breakdown={(run.cost_breakdown ?? {}) as CostBreakdown} />
+      ) : null}
 
       {errors.length > 0 ? (
         <Card className="p-8">

@@ -7,7 +7,7 @@ import { createServerClient } from "@supabase/ssr";
  * Öffentlich: Auth-Seiten, Auth-Callback und der /design-Styleguide.
  * Alles andere erfordert eine Session.
  */
-const PUBLIC_PATHS = ["/login", "/register", "/auth", "/design"];
+const PUBLIC_PATHS = ["/login", "/register", "/auth", "/design", "/invite"];
 
 function isPublic(pathname: string): boolean {
   return PUBLIC_PATHS.some(

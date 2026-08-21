@@ -13,6 +13,7 @@ export const de = {
     create: "Anlegen",
     loading: "Einen Moment …",
     signOut: "Abmelden",
+    settings: "Einstellungen",
     requiredHint: "Pflichtfeld",
   },
   auth: {
@@ -194,7 +195,74 @@ export const de = {
     cancelledText: "Die Analyse wurde abgebrochen.",
     queuedText: "Wartet auf den Worker …",
     cancel: "Abbrechen",
+    retry: "Erneut versuchen",
     errorsTitle: "Protokoll",
+  },
+  cost: {
+    title: "Kosten dieses Runs",
+    total: "Gesamt",
+    entries: {
+      haiku: "Haiku · Relevanz-Filter",
+      sonnet: "Sonnet · Tiefe Analyse",
+      opus: "Opus · Synthese",
+      whisper: "Whisper · Transkription",
+      apify: "Apify · Sammlung",
+    },
+    tokens: (input: string, output: string) => `${input} in · ${output} out`,
+    events: (n: string) => `${n} Events`,
+    seconds: (s: string) => `${s} s Audio`,
+    empty: "Für diesen Run wurden noch keine Kosten erfasst.",
+  },
+  limits: {
+    runs: "Limit erreicht: Es laufen bereits mehrere Analysen. Warte, bis eine abgeschlossen ist.",
+    generations:
+      "Limit erreicht: Es laufen bereits Generierungen. Warte einen Moment.",
+  },
+  settings: {
+    eyebrow: "Organisation",
+    title: "Einstellungen.",
+    membersTitle: "Mitglieder",
+    roleLabels: {
+      owner: "Owner",
+      admin: "Admin",
+      member: "Mitglied",
+    } as Record<string, string>,
+    invitesTitle: "Einladungen",
+    inviteHint:
+      "Die Einladung gilt für genau diese E-Mail-Adresse. Der Versand läuft per E-Mail; den Link kannst du zusätzlich kopieren.",
+    inviteEmail: "E-Mail",
+    inviteEmailPlaceholder: "kollegin@agentur.de",
+    inviteRole: "Rolle",
+    inviteSubmit: "Einladen",
+    invitePending: "Ausstehend",
+    inviteLinkCopy: "Link kopieren",
+    inviteCopied: "Kopiert",
+    inviteRevoke: "Zurückziehen",
+    inviteEmailSent: "Einladung per E-Mail versendet.",
+    inviteEmailFailed:
+      "E-Mail-Versand nicht möglich – teile den kopierten Link manuell.",
+    planTitle: "Plan",
+    planHint:
+      "Abrechnung folgt (Stripe-Struktur vorbereitet) – aktuell frei nutzbar.",
+    onlyAdmins: "Nur Admins verwalten Einladungen.",
+    errors: {
+      invalidEmail: "Bitte gib eine gültige E-Mail-Adresse an.",
+      generic: "Das hat nicht geklappt. Bitte versuche es erneut.",
+    },
+  },
+  invite: {
+    title: "Einladung annehmen",
+    loggedInText:
+      "Du wurdest in eine Organisation eingeladen. Mit dem Beitritt siehst du deren Kunden und Analysen.",
+    loggedOutText:
+      "Melde dich mit der eingeladenen E-Mail-Adresse an oder erstelle ein Konto, um beizutreten.",
+    accept: "Beitreten",
+    toLogin: "Anmelden",
+    toRegister: "Konto erstellen",
+    errors: {
+      invalid: "Diese Einladung ist ungültig oder wurde bereits verwendet.",
+      emailMismatch: "Die Einladung gilt für eine andere E-Mail-Adresse.",
+    },
   },
   results: {
     tabs: {

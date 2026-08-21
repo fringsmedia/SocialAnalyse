@@ -27,16 +27,47 @@ Regeln:
 
 Antworte ausschließlich mit dem geforderten strukturierten Ergebnis.`;
 
+export interface ProfileFeedbackContext {
+  /** Captions von Creatives, die Nutzer als "passt" markiert haben. */
+  fits: string[];
+  /** Captions von Creatives, die Nutzer als "passt nicht" markiert haben. */
+  fitsNot: string[];
+}
+
 export function buildIndustryProfileUserPrompt(input: {
   clientName: string;
   description: string;
+  /** Feedback aus früheren Runs (Phase 6, optionaler Kontext). */
+  feedback?: ProfileFeedbackContext;
 }): string {
-  return `Kunde: ${input.clientName}
+  const sections = [
+    `Kunde: ${input.clientName}`,
+    `Branchenbeschreibung des Nutzers:\n"""\n${input.description}\n"""`,
+  ];
 
-Branchenbeschreibung des Nutzers:
-"""
-${input.description}
-"""
+  const fits = input.feedback?.fits ?? [];
+  const fitsNot = input.feedback?.fitsNot ?? [];
+  if (fits.length > 0 || fitsNot.length > 0) {
+    const lines = [
+      "Feedback aus früheren Analysen dieses Kunden (nutze es, um Keywords und Ausschlussbegriffe zu schärfen):",
+    ];
+    if (fits.length > 0) {
+      lines.push(
+        `Als PASSEND markierte Creatives:\n${fits
+          .map((c) => `- "${c.slice(0, 150)}"`)
+          .join("\n")}`,
+      );
+    }
+    if (fitsNot.length > 0) {
+      lines.push(
+        `Als NICHT PASSEND markierte Creatives (solche Inhalte künftig ausschließen):\n${fitsNot
+          .map((c) => `- "${c.slice(0, 150)}"`)
+          .join("\n")}`,
+      );
+    }
+    sections.push(lines.join("\n\n"));
+  }
 
-Erstelle das Suchprofil für diese Branche.`;
+  sections.push("Erstelle das Suchprofil für diese Branche.");
+  return sections.join("\n\n");
 }

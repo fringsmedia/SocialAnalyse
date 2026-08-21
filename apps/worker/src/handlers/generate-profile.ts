@@ -44,6 +44,46 @@ export const generateProfile: JobHandler = async ({ supabase, env, job }) => {
     .eq("id", profile.client_id)
     .single();
 
+  // Feedback-Schleife: Bewertungen aus früheren Runs dieses Kunden
+  // fließen als Kontext in die Profil-Generierung ein.
+  const feedback = { fits: [] as string[], fitsNot: [] as string[] };
+  const { data: clientRuns } = await supabase
+    .from("analysis_runs")
+    .select("id")
+    .eq("client_id", profile.client_id);
+  const runIds = (clientRuns ?? []).map((r) => r.id);
+  if (runIds.length > 0) {
+    const { data: feedbackRows } = await supabase
+      .from("feedback")
+      .select("creative_id, verdict")
+      .eq("organization_id", profile.organization_id)
+      .limit(200);
+    const byCreative = new Map(
+      (feedbackRows ?? []).map((f) => [f.creative_id, f.verdict]),
+    );
+    if (byCreative.size > 0) {
+      const ids = [...byCreative.keys()];
+      for (let i = 0; i < ids.length; i += 200) {
+        const { data: creativeRows } = await supabase
+          .from("creatives")
+          .select("id, run_id, caption")
+          .in("id", ids.slice(i, i + 200));
+        for (const row of creativeRows ?? []) {
+          if (!runIds.includes(row.run_id) || !row.caption) continue;
+          const verdict = byCreative.get(row.id);
+          if (verdict === "fits" && feedback.fits.length < 20) {
+            feedback.fits.push(row.caption);
+          } else if (
+            verdict === "does_not_fit" &&
+            feedback.fitsNot.length < 20
+          ) {
+            feedback.fitsNot.push(row.caption);
+          }
+        }
+      }
+    }
+  }
+
   const adapter = createAnthropicAdapter(env.ANTHROPIC_API_KEY);
 
   try {
@@ -53,6 +93,7 @@ export const generateProfile: JobHandler = async ({ supabase, env, job }) => {
       prompt: buildIndustryProfileUserPrompt({
         clientName: client?.name ?? "Unbekannt",
         description: profile.source_description,
+        feedback,
       }),
       schema: generatedProfileSchema,
       maxTokens: 4096,

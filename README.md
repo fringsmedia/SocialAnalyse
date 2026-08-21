@@ -177,11 +177,18 @@ einzige Schrift, Pill-Buttons, 9:16-Thumbnails als Held. Tokens:
       5 Skript-Strukturen, 5 Ad-Texte, 3 Angebotsvarianten), jeder
       Vorschlag mit Pattern-Tag und Mini-Thumbnails der
       Quell-Creatives, Kopieren pro Item und Markdown-Export
-- [ ] Phase 6 – SaaS-Reife
+- [x] **Phase 6 – SaaS-Reife:** Feedback-Schleife (passt/passt nicht
+      fließt in die nächste Profil-Generierung ein), Kosten-Dashboard
+      pro Run (Anthropic/Whisper/Apify aus cost_breakdown), Rate Limits
+      für parallele Runs und Generierungen, Fehler-Retry setzt an der
+      letzten erreichten Phase wieder auf, Stripe-Vorbereitung
+      (subscriptions-Tabelle + Plan-Struktur, keine Zahlungslogik),
+      Onboarding: Mitglieder-Verwaltung mit Einladungen per E-Mail/Link
+      und Accept-Flow
 
-Hinweis zu Phase 0: Die Einladung per E-Mail ist im Datenmodell angelegt
-(`organization_invites`), UI und Versand folgen im Onboarding-Teil von
-Phase 6.
+Hinweis: Einladungen laufen unter `/settings` (Admins) – Versand per
+Supabase-Auth-E-Mail plus kopierbarem Link; die Annahme prüft die
+eingeladene E-Mail-Adresse (`accept_invite`).
 
 Hinweise zu Phase 1:
 

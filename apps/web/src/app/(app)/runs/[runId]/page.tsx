@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
-import type { PhaseCounts } from "@ci/shared";
+import type { CostBreakdown, PhaseCounts } from "@ci/shared";
 import { getAuthContext } from "@/lib/auth";
 import { RunLive } from "./run-live";
 import { ResultsShell } from "./results-shell";
@@ -199,6 +199,7 @@ export default async function RunPage({
           videos={results.videos}
           ads={results.ads}
           report={reportView}
+          costBreakdown={(run.cost_breakdown ?? {}) as CostBreakdown}
         />
       ) : (
         <RunLive initialRun={run} clientName={client?.name ?? ""} />

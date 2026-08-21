@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { SignOut } from "@phosphor-icons/react/dist/ssr";
+import { GearSix, SignOut } from "@phosphor-icons/react/dist/ssr";
 import { getAuthContext } from "@/lib/auth";
 import { getMessages } from "@/lib/i18n/de";
 import { Logo } from "@/components/logo";
@@ -29,6 +29,15 @@ export default async function AppLayout({
           <span className="hidden h-9 items-center rounded-full bg-surface-2 px-4 text-sm font-medium sm:inline-flex">
             {org.name}
           </span>
+          <Button variant="ghost" size="iconSm" asChild>
+            <Link
+              href="/settings"
+              title={m.common.settings}
+              aria-label={m.common.settings}
+            >
+              <GearSix size={18} />
+            </Link>
+          </Button>
           <form action={signOutAction}>
             <Button
               type="submit"
