@@ -196,6 +196,40 @@ export const de = {
     cancel: "Abbrechen",
     errorsTitle: "Protokoll",
   },
+  results: {
+    tabs: {
+      ads: "Top-Ads",
+      videos: "Top-Videos",
+      report: "Pattern-Report",
+    },
+    sort: {
+      label: "Sortierung",
+      score: "Score",
+      outlier: "Outlier-Faktor",
+      recent: "Neueste",
+      longevity: "Laufzeit",
+    },
+    filterCategory: {
+      all: "Alle",
+      core: "Kernbranche",
+      adjacent: "Nachbarbranche",
+      foreign: "Branchenfremd",
+    } as Record<string, string>,
+    outlierBadge: (factor: string) => `${factor}× über Account-Schnitt`,
+    runtimeDays: (days: number) => `${days} Tage aktiv`,
+    views: (n: string) => `${n} Views`,
+    engagement: (pct: string) => `ER ${pct}`,
+    reach: (n: string) => `${n} Reichweite (EU)`,
+    openOriginal: "Original öffnen",
+    itemsCount: (n: number) => (n === 1 ? "1 Creative" : `${n} Creatives`),
+    emptyVideos: "Keine relevanten Videos in diesem Run.",
+    emptyAds: "Keine relevanten Ads in diesem Run.",
+    categoryLabels: {
+      core: "Kern",
+      adjacent: "Nachbar",
+      foreign: "Fremd",
+    } as Record<string, string>,
+  },
 } as const;
 
 export type Messages = typeof de;

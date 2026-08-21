@@ -45,7 +45,10 @@ export async function mergePhaseCounts(
   });
 }
 
-/** Kosteneintrag in cost_breakdown mergen (flacher Pfad, z. B. "apify"). */
+/**
+ * Kosteneintrag in cost_breakdown mergen. Objekte werden eine Ebene
+ * tief gemergt (z. B. anthropic.haiku neben anthropic.sonnet).
+ */
 export async function mergeCostBreakdown(
   supabase: ServiceClient,
   runId: string,
@@ -54,9 +57,58 @@ export async function mergeCostBreakdown(
 ): Promise<void> {
   const run = await getRun(supabase, runId);
   const current = (run.cost_breakdown ?? {}) as Record<string, Json>;
+  const existing = current[key];
+  const merged =
+    existing &&
+    typeof existing === "object" &&
+    !Array.isArray(existing) &&
+    value &&
+    typeof value === "object" &&
+    !Array.isArray(value)
+      ? ({ ...existing, ...value } as Json)
+      : value;
   await updateRun(supabase, runId, {
-    cost_breakdown: { ...current, [key]: value } as Json,
+    cost_breakdown: { ...current, [key]: merged } as Json,
   });
+}
+
+/** Alle Creatives eines Runs paginiert laden (Supabase-Limit 1000/Seite). */
+export async function fetchAllCreatives<T>(
+  supabase: ServiceClient,
+  runId: string,
+  columns: string,
+  opts: { onlyUnfiltered?: boolean; minRelevance?: number } = {},
+): Promise<T[]> {
+  const pageSize = 1000;
+  const rows: T[] = [];
+  for (let from = 0; ; from += pageSize) {
+    let query = supabase
+      .from("creatives")
+      .select(columns)
+      .eq("run_id", runId)
+      .order("created_at", { ascending: true })
+      .range(from, from + pageSize - 1);
+    if (opts.onlyUnfiltered) query = query.is("relevance_score", null);
+    if (opts.minRelevance != null) {
+      query = query.gte("relevance_score", opts.minRelevance);
+    }
+    const { data, error } = await query;
+    if (error) throw new Error(`Creatives laden fehlgeschlagen: ${error.message}`);
+    rows.push(...((data ?? []) as T[]));
+    if (!data || data.length < pageSize) break;
+  }
+  return rows;
+}
+
+/** Updates in kleinen parallelen Chunks ausführen. */
+export async function runChunked<T>(
+  items: T[],
+  chunkSize: number,
+  fn: (item: T) => Promise<void>,
+): Promise<void> {
+  for (let i = 0; i < items.length; i += chunkSize) {
+    await Promise.all(items.slice(i, i + chunkSize).map(fn));
+  }
 }
 
 export async function appendRunError(

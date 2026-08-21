@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useRouter } from "next/navigation";
 import { Check, X } from "@phosphor-icons/react/dist/ssr";
 import type { Tables } from "@ci/db";
 import { formatCompactNumber, type PhaseCounts, type RunStatus } from "@ci/shared";
@@ -74,8 +75,17 @@ export function RunLive({
   clientName: string;
 }) {
   const m = getMessages();
+  const router = useRouter();
   const [run, setRun] = React.useState<RunRow>(initialRun);
   const [pending, startTransition] = React.useTransition();
+
+  // Sobald der Run abgeschlossen ist, serverseitig neu rendern –
+  // die Seite wechselt dann zur Ergebnisansicht.
+  React.useEffect(() => {
+    if (run.status === "completed" && initialRun.status !== "completed") {
+      router.refresh();
+    }
+  }, [run.status, initialRun.status, router]);
 
   React.useEffect(() => {
     const supabase = createSupabaseBrowserClient();

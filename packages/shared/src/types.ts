@@ -51,6 +51,8 @@ export interface PhaseCounts {
   collected?: number;
   relevant?: number;
   scored?: number;
+  /** Größe des Analyse-Pools (Top-N nach Mix-Quote). */
+  pool?: number;
   analyzed?: number;
   patterns?: number;
 }
