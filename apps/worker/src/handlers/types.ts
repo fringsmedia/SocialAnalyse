@@ -1,11 +1,15 @@
 import type { Tables } from "@ci/db";
+import type { WorkerEnv } from "@ci/shared";
 import type { ServiceClient } from "../supabase";
 
 export type Job = Tables<"job_queue">;
 
 export interface HandlerContext {
   supabase: ServiceClient;
+  env: WorkerEnv;
   job: Job;
+  /** Prüft, ob dieser Worker einen Handler für den Job-Typ registriert hat. */
+  hasHandler: (jobType: string) => boolean;
 }
 
 /**

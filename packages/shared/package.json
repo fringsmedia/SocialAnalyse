@@ -3,8 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "sideEffects": false,
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./adapters": "./src/adapters/index.ts",
+    "./prompts": "./src/prompts/index.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -12,6 +15,7 @@
     "build": "tsc --noEmit"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.120.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {

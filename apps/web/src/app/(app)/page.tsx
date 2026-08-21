@@ -1,8 +1,19 @@
+import Link from "next/link";
 import { UsersThree } from "@phosphor-icons/react/dist/ssr";
 import { getAuthContext } from "@/lib/auth";
 import { getMessages } from "@/lib/i18n/de";
+import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { NewClientDialog } from "./new-client-dialog";
+
+const ACTIVE_STATUSES = new Set([
+  "queued",
+  "collecting",
+  "filtering",
+  "scoring",
+  "analyzing",
+  "synthesizing",
+]);
 
 function formatDate(iso: string): string {
   return new Intl.DateTimeFormat("de-DE", { dateStyle: "medium" }).format(
@@ -20,6 +31,19 @@ export default async function HomePage() {
     .order("created_at", { ascending: false });
 
   const list = clients ?? [];
+
+  // Letzter Run pro Kunde für die Karten-Metadaten.
+  const { data: runs } = await supabase
+    .from("analysis_runs")
+    .select("client_id, status, created_at")
+    .neq("status", "draft")
+    .order("created_at", { ascending: false });
+  const latestRun = new Map<string, { status: string }>();
+  for (const run of runs ?? []) {
+    if (!latestRun.has(run.client_id)) {
+      latestRun.set(run.client_id, { status: run.status });
+    }
+  }
 
   return (
     <div>
@@ -61,24 +85,49 @@ export default async function HomePage() {
           </Card>
         ) : (
           <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-5">
-            {list.map((client) => (
-              <Card key={client.id} className="flex min-h-44 flex-col p-7">
-                <h2 className="text-xl font-medium tracking-tight">
-                  {client.name}
-                </h2>
-                {client.description ? (
-                  <p className="mt-2 line-clamp-2 text-[15px] leading-relaxed text-ink-2">
-                    {client.description}
-                  </p>
-                ) : null}
-                <div className="mt-auto flex items-center justify-between pt-6 text-[13px] font-medium text-ink-2">
-                  <span>{m.home.noRunYet}</span>
-                  <span className="tnum">
-                    {m.home.createdAt(formatDate(client.created_at))}
-                  </span>
-                </div>
-              </Card>
-            ))}
+            {list.map((client) => {
+              const run = latestRun.get(client.id);
+              return (
+                <Link
+                  key={client.id}
+                  href={`/clients/${client.id}`}
+                  className="group block rounded-(--radius-card) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                >
+                  <Card className="flex min-h-44 flex-col p-7 transition-colors duration-300 group-hover:bg-[#fbfbfa]">
+                    <h2 className="text-xl font-medium tracking-tight">
+                      {client.name}
+                    </h2>
+                    {client.description ? (
+                      <p className="mt-2 line-clamp-2 text-[15px] leading-relaxed text-ink-2">
+                        {client.description}
+                      </p>
+                    ) : null}
+                    <div className="mt-auto flex items-center justify-between gap-3 pt-6">
+                      {run ? (
+                        <Badge
+                          variant={
+                            ACTIVE_STATUSES.has(run.status)
+                              ? "accent"
+                              : run.status === "completed"
+                                ? "dark"
+                                : "neutral"
+                          }
+                        >
+                          {m.runStatusLabels[run.status] ?? run.status}
+                        </Badge>
+                      ) : (
+                        <span className="text-[13px] font-medium text-ink-2">
+                          {m.home.noRunYet}
+                        </span>
+                      )}
+                      <span className="tnum text-[13px] font-medium text-ink-2">
+                        {m.home.createdAt(formatDate(client.created_at))}
+                      </span>
+                    </div>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         )}
       </section>

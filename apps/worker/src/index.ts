@@ -33,7 +33,11 @@ async function pollOnce(): Promise<boolean> {
     attempt: job.attempts,
   });
 
-  const outcome = await processClaimedJob(job, handlers, { supabase });
+  const outcome = await processClaimedJob(job, handlers, {
+    supabase,
+    env,
+    hasHandler: (jobType) => jobType in handlers,
+  });
 
   if (outcome.status === "succeeded") {
     const { error: completeError } = await supabase.rpc("complete_job", {

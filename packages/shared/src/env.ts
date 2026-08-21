@@ -22,6 +22,15 @@ export const workerEnvSchema = z.object({
   WORKER_POLL_INTERVAL_MS: z.coerce.number().int().positive().default(2000),
   /** Eindeutige Worker-Identität für job_queue.locked_by. */
   WORKER_ID: z.string().min(1).optional(),
+  /**
+   * Externe Dienste: optional beim Start – Handler, die einen Key
+   * brauchen, schlagen mit klarer Meldung fehl, wenn er fehlt.
+   */
+  ANTHROPIC_API_KEY: z.string().min(1).optional(),
+  APIFY_TOKEN: z.string().min(1).optional(),
+  META_AD_LIBRARY_ACCESS_TOKEN: z.string().min(1).optional(),
+  APIFY_TIKTOK_ACTOR: z.string().min(1).optional(),
+  APIFY_INSTAGRAM_ACTOR: z.string().min(1).optional(),
 });
 
 export type WorkerEnv = z.infer<typeof workerEnvSchema>;

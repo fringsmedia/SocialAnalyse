@@ -10,7 +10,9 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { PRODUCT_NAME } from "@ci/shared";
 import { tokens } from "@/lib/design-tokens";
+import { ChipsEditor } from "@/components/chips-editor";
 import { Logo } from "@/components/logo";
+import { Stepper } from "@/components/stepper";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -80,6 +82,10 @@ export default function DesignPage() {
     "probefahrt",
   ]);
   const [platform, setPlatform] = useState("tiktok");
+  const [editorChips, setEditorChips] = useState([
+    "probefahrt",
+    "finanzierung",
+  ]);
 
   return (
     <div className="mx-auto w-full max-w-300 px-6 pb-32 md:px-10">
@@ -235,6 +241,20 @@ export default function DesignPage() {
             </div>
           </div>
         </Card>
+      </Section>
+
+      <Section
+        title="Flow-Bausteine"
+        note="Stepper für den Anlage-Flow, editierbare Chip-Listen für das Branchenprofil."
+      >
+        <div className="space-y-8">
+          <Stepper steps={["Beschreiben", "Profil prüfen", "Starten"]} active={1} />
+          <ChipsEditor
+            values={editorChips}
+            onChange={setEditorChips}
+            addPlaceholder="Hinzufügen und Enter"
+          />
+        </div>
       </Section>
 
       <Section

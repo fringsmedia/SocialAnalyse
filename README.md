@@ -153,7 +153,13 @@ einzige Schrift, Pill-Buttons, 9:16-Thumbnails als Held. Tokens:
 - [x] **Phase 0 – Setup:** Monorepo, Migrationen + RLS, Auth (Login,
       Registrierung, Organisation), Worker-Queue-Grundgerüst, Design-Tokens,
       `/design`-Styleguide, Seed, Tests
-- [ ] Phase 1 – Profil und Collect
+- [x] **Phase 1 – Profil und Collect:** dreistufiger Anlage-Flow
+      (Beschreiben → Profil prüfen mit editierbaren Chips/Toggles →
+      Konfiguration mit Kostenschätzung), Profil-Generierung via Opus
+      (Structured Output, Worker-Job), Meta-Ad-Library-Adapter,
+      Apify-Adapter für TikTok und Instagram, Collect-Handler mit
+      Fortschritts- und Kosten-Tracking, Run-Status-Screen mit
+      Supabase Realtime + Abbruch
 - [ ] Phase 2 – Filter und Score
 - [ ] Phase 3 – Analyze
 - [ ] Phase 4 – Synthesize
@@ -163,3 +169,15 @@ einzige Schrift, Pill-Buttons, 9:16-Thumbnails als Held. Tokens:
 Hinweis zu Phase 0: Die Einladung per E-Mail ist im Datenmodell angelegt
 (`organization_invites`), UI und Versand folgen im Onboarding-Teil von
 Phase 6.
+
+Hinweise zu Phase 1:
+
+- Die offizielle Meta Ad Library API liefert keine Bild-URLs – Ads tragen
+  in Phase 1 kein Thumbnail, sondern verlinken den Original-Snapshot.
+  Organische Creatives führen ihre Remote-Thumbnail-URL in
+  `raw_metrics.thumbnail_url`; die WebP-Ingestion nach Supabase Storage
+  passiert gezielt für die angezeigten Top-Items (Phase 2/3), nicht für
+  alle 1.000–2.000 gesammelten Items.
+- Solange die Filter-Phase (Phase 2) nicht existiert, schließt der
+  Collect-Handler den Run nach dem Sammeln ab; sobald ein
+  `filter`-Handler registriert ist, reiht er ihn automatisch ein.

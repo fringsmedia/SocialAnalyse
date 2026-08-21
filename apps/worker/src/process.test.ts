@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import type { WorkerEnv } from "@ci/shared";
 import type { Job } from "./handlers/types";
 import { ping } from "./handlers/ping";
 import { processClaimedJob } from "./process";
@@ -27,7 +28,11 @@ function makeJob(overrides: Partial<Job> = {}): Job {
 }
 
 // Die Dispatch-Logik ist DB-frei; ein leeres Objekt genügt als Kontext.
-const context = { supabase: {} as ServiceClient };
+const context = {
+  supabase: {} as ServiceClient,
+  env: {} as WorkerEnv,
+  hasHandler: () => false,
+};
 
 describe("processClaimedJob", () => {
   it("führt den ping-Handler aus und spiegelt den Payload", async () => {
