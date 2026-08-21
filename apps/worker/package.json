@@ -11,6 +11,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.120.0",
     "@ci/db": "workspace:*",
     "@ci/shared": "workspace:*",
     "@supabase/supabase-js": "^2.112.3",

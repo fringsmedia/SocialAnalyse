@@ -230,6 +230,30 @@ export const de = {
       foreign: "Fremd",
     } as Record<string, string>,
   },
+  drawer: {
+    whyTitle: "Warum performt das",
+    frames: "Frames",
+    transcript: "Transkript",
+    hook: "Hook",
+    structure: "Struktur",
+    offer: "Angebot",
+    offerFraming: "Framing",
+    cta: "CTA",
+    visualPatterns: "Visuelle Muster",
+    textOverlays: "Text-Overlays",
+    pacing: "Pacing",
+    faceVsProduct: "Fokus",
+    tone: "Tonalität",
+    headline: "Headline",
+    adText: "Ad-Text",
+    noAnalysis:
+      "Für dieses Creative liegt keine tiefe Analyse vor – es war nicht im Top-N-Pool.",
+    openOriginal: "Original öffnen",
+    feedbackQuestion: "Passt dieses Creative zur Branche?",
+    feedbackFits: "Passt",
+    feedbackFitsNot: "Passt nicht",
+    feedbackHint: "Dein Feedback schärft das Profil beim nächsten Run.",
+  },
 } as const;
 
 export type Messages = typeof de;

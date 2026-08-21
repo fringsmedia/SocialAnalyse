@@ -26,6 +26,18 @@
 
   --animate-overlay-in: overlay-in 0.3s var(--ease-out-quart) both;
   --animate-panel-in: panel-in 0.45s var(--ease-out-quart) both;
+  --animate-drawer-in: drawer-in 0.5s var(--ease-out-expo) both;
+
+  @keyframes drawer-in {
+    from {
+      opacity: 0.5;
+      transform: translateX(64px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 
   @keyframes overlay-in {
     from {

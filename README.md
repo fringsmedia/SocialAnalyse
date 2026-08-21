@@ -161,7 +161,12 @@ einzige Schrift, Pill-Buttons, 9:16-Thumbnails als Held. Tokens:
       Fortschritts- und Kosten-Tracking, Run-Status-Screen mit
       Supabase Realtime + Abbruch
 - [ ] Phase 2 – Filter und Score
-- [ ] Phase 3 – Analyze
+- [x] **Phase 3 – Analyze:** ffmpeg-Pipeline im Worker (Video temporär
+      streamen, Frames fest bei 0/1/2/3 s plus Szenenwechsel, max. 8,
+      512 px WebP, Original sofort verworfen), Whisper-Transkription,
+      Frames in Supabase Storage, Sonnet-Analyse pro Creative als
+      Structured Output über die Batch API; Detail-Drawer mit Frames,
+      Transkript, vollständiger Analyse und Feedback-Buttons
 - [ ] Phase 4 – Synthesize
 - [ ] Phase 5 – Generate
 - [ ] Phase 6 – SaaS-Reife

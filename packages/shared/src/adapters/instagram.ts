@@ -22,6 +22,7 @@ const rawInstagramItemSchema = z.looseObject({
   type: z.string().optional(),
   productType: z.string().optional(),
   displayUrl: z.string().optional(),
+  videoUrl: z.string().optional(),
   videoPlayCount: z.number().optional(),
   videoViewCount: z.number().optional(),
   likesCount: z.number().optional(),
@@ -66,6 +67,8 @@ export function normalizeInstagramItem(
       likes: item.likesCount ?? null,
       comments: item.commentsCount ?? null,
       duration_seconds: item.videoDuration ?? null,
+      // Direkte Medien-URL fuer die ANALYZE-Phase (Streaming, kein Speichern)
+      video_url: item.videoUrl ?? null,
     },
     account:
       item.ownerUsername || item.ownerId

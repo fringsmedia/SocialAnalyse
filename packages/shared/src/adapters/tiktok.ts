@@ -28,9 +28,11 @@ const rawTikTokItemSchema = z.looseObject({
     .looseObject({
       coverUrl: z.string().optional(),
       duration: z.number().optional(),
+      downloadAddr: z.string().optional(),
     })
     .optional(),
   covers: z.array(z.string()).optional(),
+  mediaUrls: z.array(z.string()).optional(),
   authorMeta: z
     .looseObject({
       id: z.union([z.string(), z.number()]).optional(),
@@ -75,6 +77,8 @@ export function normalizeTikTokItem(raw: unknown): NormalizedCreative | null {
       shares: item.shareCount ?? null,
       saves: item.collectCount ?? null,
       duration_seconds: item.videoMeta?.duration ?? null,
+      // Direkte Medien-URL fuer die ANALYZE-Phase (Streaming, kein Speichern)
+      video_url: item.videoMeta?.downloadAddr ?? item.mediaUrls?.[0] ?? null,
     },
     account:
       handle || item.authorMeta?.id

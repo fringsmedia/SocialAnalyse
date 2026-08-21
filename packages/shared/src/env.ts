@@ -31,6 +31,11 @@ export const workerEnvSchema = z.object({
   META_AD_LIBRARY_ACCESS_TOKEN: z.string().min(1).optional(),
   APIFY_TIKTOK_ACTOR: z.string().min(1).optional(),
   APIFY_INSTAGRAM_ACTOR: z.string().min(1).optional(),
+  /** Whisper-Transkription (ANALYZE-Phase). */
+  OPENAI_API_KEY: z.string().min(1).optional(),
+  /** Pfade zu ffmpeg/ffprobe, falls nicht im PATH. */
+  FFMPEG_PATH: z.string().min(1).optional(),
+  FFPROBE_PATH: z.string().min(1).optional(),
 });
 
 export type WorkerEnv = z.infer<typeof workerEnvSchema>;

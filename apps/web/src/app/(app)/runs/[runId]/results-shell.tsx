@@ -3,24 +3,30 @@
 import * as React from "react";
 import { formatCompactNumber, type PhaseCounts } from "@ci/shared";
 import { getMessages } from "@/lib/i18n/de";
+import { CreativeDrawer } from "./creative-drawer";
 import { RunResults, type CreativeLite } from "./run-results";
 
 /**
- * Client-Hülle der Ergebnisansicht. Hält ab Phase 3 den Zustand des
- * Detail-Drawers; Phase 2 verlinkt Creatives direkt aufs Original.
+ * Client-Hülle der Ergebnisansicht: Tabs plus Detail-Drawer
+ * (Transkript, Frames, Analyse, Feedback).
  */
 export function ResultsShell({
   clientName,
+  orgId,
   counts,
   videos,
   ads,
+  reportTab,
 }: {
   clientName: string;
+  orgId: string;
   counts: PhaseCounts;
   videos: CreativeLite[];
   ads: CreativeLite[];
+  reportTab?: React.ReactNode;
 }) {
   const m = getMessages();
+  const [selected, setSelected] = React.useState<CreativeLite | null>(null);
 
   const summary = [
     counts.collected != null
@@ -49,7 +55,17 @@ export function ResultsShell({
           </p>
         ) : null}
       </section>
-      <RunResults videos={videos} ads={ads} />
+      <RunResults
+        videos={videos}
+        ads={ads}
+        onOpen={setSelected}
+        reportTab={reportTab}
+      />
+      <CreativeDrawer
+        item={selected}
+        orgId={orgId}
+        onClose={() => setSelected(null)}
+      />
     </div>
   );
 }

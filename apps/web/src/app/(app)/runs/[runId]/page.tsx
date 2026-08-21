@@ -141,6 +141,7 @@ export default async function RunPage({
       {results ? (
         <ResultsShell
           clientName={client?.name ?? ""}
+          orgId={run.organization_id}
           counts={(run.phase_counts ?? {}) as PhaseCounts}
           videos={results.videos}
           ads={results.ads}

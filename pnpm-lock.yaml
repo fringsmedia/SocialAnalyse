@@ -83,6 +83,9 @@ importers:
 
   apps/worker:
     dependencies:
+      '@anthropic-ai/sdk':
+        specifier: ^0.120.0
+        version: 0.120.0(zod@4.4.3)
       '@ci/db':
         specifier: workspace:*
         version: link:../../packages/db
