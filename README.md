@@ -167,8 +167,16 @@ einzige Schrift, Pill-Buttons, 9:16-Thumbnails als Held. Tokens:
       Frames in Supabase Storage, Sonnet-Analyse pro Creative als
       Structured Output über die Batch API; Detail-Drawer mit Frames,
       Transkript, vollständiger Analyse und Feedback-Buttons
-- [ ] Phase 4 – Synthesize
-- [ ] Phase 5 – Generate
+- [x] **Phase 4 – Synthesize:** Opus-Batch pro Run clustert Hooks,
+      Strukturen, Angebotsframings, CTAs und visuelle Muster mit
+      Häufigkeiten und belegten Beispielen (Referenz-Mapping statt
+      UUIDs); Pattern-Report-Tab als lesbares Dokument mit
+      Häufigkeitsbalken und klickbaren Beispiel-Thumbnails
+- [x] **Phase 5 – Generate:** Creative-Generator als Split-View
+      (Angebot, Zielgruppe, Tonalität, Plattform → 15 Hooks,
+      5 Skript-Strukturen, 5 Ad-Texte, 3 Angebotsvarianten), jeder
+      Vorschlag mit Pattern-Tag und Mini-Thumbnails der
+      Quell-Creatives, Kopieren pro Item und Markdown-Export
 - [ ] Phase 6 – SaaS-Reife
 
 Hinweis zu Phase 0: Die Einladung per E-Mail ist im Datenmodell angelegt

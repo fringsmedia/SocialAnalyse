@@ -230,6 +230,50 @@ export const de = {
       foreign: "Fremd",
     } as Record<string, string>,
   },
+  generator: {
+    eyebrow: "Creative-Generator",
+    title: "Neue Creatives.",
+    context:
+      "Links dein Angebot, rechts fertige Hooks, Skript-Strukturen und Ad-Texte – jeder Vorschlag mit Pattern und Original-Beleg.",
+    basedOnRun: (date: string) => `Basis: Analyse vom ${date}`,
+    form: {
+      offer: "Dein Angebot",
+      offerPlaceholder:
+        "z. B. Gebrauchtwagen mit 12 Monaten Garantie und 0%-Finanzierung für junge Familien",
+      audience: "Zielgruppe",
+      audiencePlaceholder: "z. B. Familien in Bayern, 28–45, preisbewusst",
+      tone: "Tonalität",
+      tonePlaceholder: "z. B. locker, direkt, ohne Werbesprech",
+      platform: "Plattform",
+      platformAll: "Alle (Mix)",
+      submit: "Creatives generieren",
+      generating: "Wird generiert …",
+      generatingHint:
+        "Opus leitet aus den Patterns deine Bausteine ab – meist unter zwei Minuten.",
+      errors: {
+        invalid: "Bitte fülle Angebot, Zielgruppe und Tonalität aus.",
+        generic: "Die Generierung konnte nicht gestartet werden.",
+      },
+    },
+    needRun: {
+      title: "Noch keine Basis",
+      text: "Der Generator braucht eine abgeschlossene Analyse mit Pattern-Report. Starte zuerst eine Analyse für diesen Kunden.",
+      cta: "Analyse anlegen",
+    },
+    sections: {
+      hook: "Hooks",
+      script_structure: "Skript-Strukturen",
+      ad_text: "Ad-Texte",
+      offer_variant: "Angebotsvarianten",
+    } as Record<string, string>,
+    copy: "Kopieren",
+    copied: "Kopiert",
+    exportMd: "Als Markdown exportieren",
+    failed: "Die Generierung ist fehlgeschlagen. Versuche es erneut.",
+    empty:
+      "Definiere links dein Angebot – rechts erscheinen die generierten Bausteine.",
+    openGenerator: "Creative-Generator",
+  },
   report: {
     summaryTitle: "Zusammenfassung",
     sections: {

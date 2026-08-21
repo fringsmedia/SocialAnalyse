@@ -71,12 +71,19 @@ export default async function ClientDetailPage({
               </p>
             ) : null}
           </div>
-          <Button size="lg" asChild>
-            <Link href={`/clients/${client.id}/analyses/new`}>
-              <Plus size={16} weight="bold" />
-              {m.clientDetail.newAnalysis}
-            </Link>
-          </Button>
+          <div className="flex flex-wrap gap-3">
+            <Button variant="dark" size="lg" asChild>
+              <Link href={`/clients/${client.id}/generator`}>
+                {m.generator.openGenerator}
+              </Link>
+            </Button>
+            <Button size="lg" asChild>
+              <Link href={`/clients/${client.id}/analyses/new`}>
+                <Plus size={16} weight="bold" />
+                {m.clientDetail.newAnalysis}
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
