@@ -230,6 +230,20 @@ export const de = {
       foreign: "Fremd",
     } as Record<string, string>,
   },
+  report: {
+    summaryTitle: "Zusammenfassung",
+    sections: {
+      hook: "Hooks",
+      structure: "Strukturen",
+      offer_framing: "Angebotsframings",
+      cta: "CTAs",
+      visual: "Visuelle Muster",
+    } as Record<string, string>,
+    frequency: (n: number) => (n === 1 ? "1 Creative" : `${n} Creatives`),
+    whyItWorks: "Warum es funktioniert",
+    transferability: "Übertragbarkeit",
+    empty: "Für diesen Run liegt noch kein Pattern-Report vor.",
+  },
   drawer: {
     whyTitle: "Warum performt das",
     frames: "Frames",

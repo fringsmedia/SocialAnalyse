@@ -7,6 +7,15 @@ import { getAuthContext } from "@/lib/auth";
 import { RunLive } from "./run-live";
 import { ResultsShell } from "./results-shell";
 import type { CreativeLite } from "./run-results";
+import type { ReportView } from "./pattern-report-tab";
+
+const REPORT_SECTION_ORDER = [
+  "hook",
+  "structure",
+  "offer_framing",
+  "cta",
+  "visual",
+] as const;
 
 export const metadata: Metadata = { title: "Analyse" };
 
@@ -46,6 +55,7 @@ export default async function RunPage({
     .single();
 
   let results: { videos: CreativeLite[]; ads: CreativeLite[] } | null = null;
+  let reportView: ReportView | null = null;
 
   if (run.status === "completed") {
     const { data: rows } = await supabase
@@ -124,6 +134,49 @@ export default async function RunPage({
         videos: lites.filter((l) => l.source !== "meta_ad"),
         ads: lites.filter((l) => l.source === "meta_ad"),
       };
+
+      // Pattern-Report (Phase 4): Sektionen mit aufgelösten Beispielen.
+      const liteById = new Map(lites.map((l) => [l.id, l]));
+      const [{ data: patterns }, { data: report }] = await Promise.all([
+        supabase
+          .from("patterns")
+          .select("type, title, description, frequency, example_creative_ids, data")
+          .eq("run_id", runId)
+          .order("frequency", { ascending: false }),
+        supabase
+          .from("pattern_reports")
+          .select("report")
+          .eq("run_id", runId)
+          .maybeSingle(),
+      ]);
+
+      if (patterns && patterns.length > 0) {
+        const reportJson = (report?.report ?? {}) as { summary?: string };
+        reportView = {
+          summary: reportJson.summary ?? null,
+          sections: REPORT_SECTION_ORDER.map((type) => ({
+            type,
+            patterns: patterns
+              .filter((p) => p.type === type)
+              .map((p) => {
+                const extra = (p.data ?? {}) as {
+                  why_it_works?: string;
+                  transferability?: string;
+                };
+                return {
+                  title: p.title,
+                  description: p.description,
+                  frequency: p.frequency,
+                  why_it_works: extra.why_it_works ?? null,
+                  transferability: extra.transferability ?? null,
+                  examples: (p.example_creative_ids ?? [])
+                    .map((id) => liteById.get(id))
+                    .filter((l): l is CreativeLite => Boolean(l)),
+                };
+              }),
+          })),
+        };
+      }
     }
   }
 
@@ -145,6 +198,7 @@ export default async function RunPage({
           counts={(run.phase_counts ?? {}) as PhaseCounts}
           videos={results.videos}
           ads={results.ads}
+          report={reportView}
         />
       ) : (
         <RunLive initialRun={run} clientName={client?.name ?? ""} />

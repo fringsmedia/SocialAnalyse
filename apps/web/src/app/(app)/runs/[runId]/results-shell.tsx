@@ -4,6 +4,7 @@ import * as React from "react";
 import { formatCompactNumber, type PhaseCounts } from "@ci/shared";
 import { getMessages } from "@/lib/i18n/de";
 import { CreativeDrawer } from "./creative-drawer";
+import { PatternReportTab, type ReportView } from "./pattern-report-tab";
 import { RunResults, type CreativeLite } from "./run-results";
 
 /**
@@ -16,14 +17,14 @@ export function ResultsShell({
   counts,
   videos,
   ads,
-  reportTab,
+  report,
 }: {
   clientName: string;
   orgId: string;
   counts: PhaseCounts;
   videos: CreativeLite[];
   ads: CreativeLite[];
-  reportTab?: React.ReactNode;
+  report?: ReportView | null;
 }) {
   const m = getMessages();
   const [selected, setSelected] = React.useState<CreativeLite | null>(null);
@@ -59,7 +60,11 @@ export function ResultsShell({
         videos={videos}
         ads={ads}
         onOpen={setSelected}
-        reportTab={reportTab}
+        reportTab={
+          report ? (
+            <PatternReportTab data={report} onOpen={setSelected} />
+          ) : undefined
+        }
       />
       <CreativeDrawer
         item={selected}

@@ -5,10 +5,11 @@ import { filter } from "./filter";
 import { generateProfile } from "./generate-profile";
 import { ping } from "./ping";
 import { score } from "./score";
+import { synthesize } from "./synthesize";
 
 /**
- * Registry aller Job-Handler. synthesize und generate kommen in den
- * Phasen 4–5 hinzu; die Queue-Mechanik bleibt unverändert.
+ * Registry aller Job-Handler. generate kommt in Phase 5 hinzu;
+ * die Queue-Mechanik bleibt unverändert.
  */
 export const handlers: Record<string, JobHandler> = {
   ping,
@@ -17,4 +18,5 @@ export const handlers: Record<string, JobHandler> = {
   filter,
   score,
   analyze,
+  synthesize,
 };
