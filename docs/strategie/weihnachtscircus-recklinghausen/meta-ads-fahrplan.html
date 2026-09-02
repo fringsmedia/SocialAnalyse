@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Weihnachtscircus Recklinghausen – Meta-Ads-Fahrplan 2026/27</title>
+<style>
+  @page { size: A4; margin: 12mm 12mm 15mm 12mm;
+    @bottom-left { content: "Weihnachtscircus Recklinghausen · Meta-Ads-Fahrplan 2026/27"; font-family: "Liberation Sans", Arial, sans-serif; font-size: 7.4pt; color: #6B6259; }
+    @bottom-right { content: "Seite " counter(page); font-family: "Liberation Sans", Arial, sans-serif; font-size: 7.4pt; color: #6B6259; } }
+  @page :first { @bottom-left { content: none; } @bottom-right { content: none; } }
+  :root {
+    --red: #8B1E2D;
+    --red-dark: #5E1220;
+    --gold: #C9A227;
+    --gold-light: #F3E7BE;
+    --cream: #FBF7EE;
+    --ink: #1F1B17;
+    --muted: #6B6259;
+    --line: #E4DCCB;
+    --green: #2E6B3F;
+    --blue: #2B4C7E;
+    --amber: #B5651D;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Liberation Sans", Arial, Helvetica, sans-serif; color: var(--ink); font-size: 9.4pt; line-height: 1.34; background: #fff; }
+  h1, h2, h3, h4 { font-family: "DejaVu Serif", Georgia, serif; margin: 0; color: var(--red-dark); }
+  h1 { font-size: 26pt; line-height: 1.15; }
+  h2 { font-size: 16pt; margin-bottom: 3mm; padding-bottom: 1.5mm; border-bottom: 2px solid var(--gold); }
+  h3 { font-size: 12pt; margin: 4mm 0 2mm; color: var(--red); }
+  h4 { font-size: 10.5pt; margin: 3mm 0 1.5mm; color: var(--ink); font-family: "Liberation Sans", Arial, sans-serif; font-weight: bold; }
+  p { margin: 0 0 2.5mm; }
+  ul { margin: 0 0 2.5mm; padding-left: 4.5mm; }
+  li { margin-bottom: 0.9mm; }
+  table.compact th, table.compact td { padding: 0.9mm 1.5mm; font-size: 7.8pt; }
+  table.xcompact th, table.xcompact td { padding: 0.6mm 1.4mm; font-size: 7.4pt; line-height: 1.25; }
+  .page { page-break-before: always; position: relative; }
+  .page:first-child { page-break-before: auto; }
+  .kicker { font-size: 8.5pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: bold; margin-bottom: 2mm; }
+  .muted { color: var(--muted); }
+  .small { font-size: 8.2pt; }
+  .tiny { font-size: 7.4pt; }
+  table { width: 100%; border-collapse: collapse; margin: 0 0 3mm; font-size: 8.4pt; page-break-inside: auto; }
+  th, td { border: 1px solid var(--line); padding: 1.3mm 1.8mm; vertical-align: top; text-align: left; }
+  th { background: var(--red-dark); color: #fff; font-weight: bold; font-size: 8pt; letter-spacing: 0.02em; }
+  tr { page-break-inside: avoid; }
+  tbody tr:nth-child(even) td { background: var(--cream); }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .card { border: 1px solid var(--line); border-radius: 2mm; padding: 2.4mm 3mm; background: #fff; page-break-inside: avoid; }
+  .card.cream { background: var(--cream); }
+  .card.red { background: var(--red-dark); color: #fff; border-color: var(--red-dark); }
+  .card.red h3, .card.red h4 { color: var(--gold-light); }
+  .card.gold { background: var(--gold-light); border-color: var(--gold); }
+  .stat { font-family: "DejaVu Serif", Georgia, serif; font-size: 19pt; color: var(--red); line-height: 1; margin-bottom: 1mm; }
+  .card.red .stat { color: var(--gold); }
+  .label { font-size: 8.3pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .card.red .label { color: var(--gold-light); }
+  .pill { display: inline-block; padding: 0.6mm 2mm; border-radius: 3mm; font-size: 7.8pt; font-weight: bold; color: #fff; background: var(--red); margin-right: 1mm; white-space: nowrap; }
+  .pill.green { background: var(--green); } .pill.blue { background: var(--blue); } .pill.amber { background: var(--amber); } .pill.gold { background: var(--gold); color: var(--ink); } .pill.grey { background: #8a8078; }
+  .callout { border-left: 3px solid var(--gold); background: var(--cream); padding: 2.5mm 3.5mm; margin: 2.5mm 0 3.5mm; page-break-inside: avoid; }
+  .callout.warn { border-left-color: var(--amber); }
+  .callout.ok { border-left-color: var(--green); }
+  .footer { display: none; position: absolute; bottom: 0; left: 0; right: 0; font-size: 7.6pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1.5mm; display: flex; justify-content: space-between; }
+  .check li { list-style: none; position: relative; padding-left: 5mm; }
+  .check li:before { content: "☐"; position: absolute; left: 0; top: -0.2mm; color: var(--red); font-size: 10pt; }
+  .phase-head { display: flex; align-items: baseline; gap: 3mm; margin-bottom: 1.5mm; }
+  .phase-no { font-family: "DejaVu Serif", Georgia, serif; font-size: 20pt; color: var(--gold); line-height: 1; }
+  .phase-title { font-family: "DejaVu Serif", Georgia, serif; font-size: 13pt; color: var(--red-dark); }
+  .phase-dates { font-size: 9pt; color: var(--muted); }
+  /* Cover */
+  .cover { background: var(--red-dark); color: #fff; min-height: 266mm; padding: 18mm 16mm; border-radius: 3mm; position: relative; overflow: hidden; }
+  .cover .kicker { color: var(--gold); }
+  .cover h1 { color: #fff; font-size: 32pt; }
+  .cover .sub { font-size: 13pt; color: var(--gold-light); margin-top: 4mm; font-family: "DejaVu Serif", Georgia, serif; }
+  .cover .meta { position: absolute; bottom: 14mm; left: 16mm; right: 16mm; font-size: 9.5pt; color: var(--gold-light); border-top: 1px solid var(--gold); padding-top: 4mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+  .cover .meta b { display: block; color: #fff; }
+  .stars { position: absolute; right: 12mm; top: 12mm; font-size: 60pt; color: var(--gold); opacity: 0.35; line-height: 1; }
+  .ring { position: absolute; width: 190mm; height: 190mm; border: 1.5mm solid var(--gold); border-radius: 50%; opacity: 0.12; right: -70mm; bottom: -60mm; }
+  .ring2 { position: absolute; width: 140mm; height: 140mm; border: 1mm solid var(--gold); border-radius: 50%; opacity: 0.12; right: -45mm; bottom: -35mm; }
+  /* Timeline */
+  .tl { position: relative; margin: 3mm 0 4mm; }
+  .tl-months { display: grid; grid-template-columns: repeat(18, 1fr); font-size: 7.6pt; color: var(--muted); border-bottom: 1px solid var(--line); margin-bottom: 1mm; }
+  .tl-months div { text-align: center; padding-bottom: 1mm; border-right: 1px dotted var(--line); }
+  .tl-row { display: grid; grid-template-columns: repeat(18, 1fr); height: 7.5mm; margin-bottom: 1.2mm; align-items: center; }
+  .tl-bar { height: 6.4mm; border-radius: 1.2mm; color: #fff; font-size: 7.6pt; font-weight: bold; display: flex; align-items: center; padding: 0 2mm; white-space: nowrap; overflow: hidden; }
+  .tl-label { font-size: 8pt; font-weight: bold; color: var(--ink); }
+  .legend span { display: inline-block; margin-right: 4mm; font-size: 8pt; }
+  .legend i { display: inline-block; width: 3.5mm; height: 3.5mm; border-radius: 0.8mm; vertical-align: middle; margin-right: 1.2mm; }
+  .bar { height: 5mm; background: var(--gold-light); border-radius: 1mm; position: relative; overflow: hidden; }
+  .bar > i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--red); border-radius: 1mm; }
+  .kpi-row { display: grid; grid-template-columns: 3fr 2fr 1.2fr; gap: 2mm; align-items: center; margin-bottom: 1.6mm; font-size: 9pt; }
+  .arrowlist li { list-style: none; padding-left: 4.5mm; position: relative; }
+  .arrowlist li:before { content: "▸"; position: absolute; left: 0; color: var(--gold); }
+  .avoid { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<div class="page">
+  <div class="cover">
+    <div class="stars">✦</div>
+    <div class="ring"></div><div class="ring2"></div>
+    <div class="kicker">Performance-Marketing · Meta Ads (Facebook &amp; Instagram)</div>
+    <h1>Weihnachtscircus<br>Recklinghausen</h1>
+    <div class="sub">Meta-Ads-Strategie &amp; Fahrplan<br>Saison 2026/27 · 17. Dezember 2026 – 3. Januar 2027</div>
+    <div style="margin-top:14mm; max-width:120mm; font-size:11pt; line-height:1.5; color:#fff;">
+      Ziel: <b style="color:var(--gold)">12.000 Tickets</b> in der ersten Spielzeit.<br>
+      Positionierung: Nostalgie, Atmosphäre, Familien über drei Generationen.<br>
+      Dieses Dokument zeigt, welche Kampagnen wann laufen, mit welchem Budget, welchen Motiven und welchen Kennzahlen.
+    </div>
+    <div class="meta">
+      <div><b>Stand</b>02. September 2026 · Version 1.0</div>
+      <div><b>Zeitfenster</b>15 Wochen bis Premiere<br>18 Spieltage</div>
+      <div><b>Spielort</b>Rathausplatz Recklinghausen<br>Zelt mit Schnee &amp; Manege</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 1. AUF EINEN BLICK ===================== -->
+<div class="page">
+  <div class="kicker">1 · Auf einen Blick</div>
+  <h2>Der Fahrplan in 60 Sekunden</h2>
+
+  <div class="grid4" style="margin-bottom:4mm;">
+    <div class="card red"><div class="stat">12.000</div><div class="label">Tickets Ziel</div></div>
+    <div class="card cream"><div class="stat">≈ 3.500</div><div class="label">Bestellungen (Ø 3,4 Tickets)</div></div>
+    <div class="card cream"><div class="stat">27.000 €</div><div class="label">Meta-Budget (Empfehlung)</div></div>
+    <div class="card cream"><div class="stat">≤ 17 €</div><div class="label">Ziel-CPA pro Bestellung</div></div>
+  </div>
+
+  <h3>Die 5 Phasen</h3>
+  <table>
+    <thead><tr><th style="width:9%">Phase</th><th style="width:19%">Zeitraum</th><th style="width:30%">Was passiert</th><th style="width:12%">Budget</th><th>Erfolg heißt</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill grey">0</span> Setup</td><td>02.09. – 13.09.</td><td>Tracking, Ticketshop, Landingpage, Creatives, Facebook-Event, Angebote fixieren</td><td class="num">0 €</td><td>Pixel/CAPI liefert „Purchase“, 6 Motive fertig, Frühbucher-Angebot live</td></tr>
+      <tr><td><span class="pill blue">1</span> Aufmerksamkeit</td><td>14.09. – 11.10.</td><td>Trailer-Reichweite lokal + Verkaufskampagne (klein) + Facebook-Event + Gewinnspiel-Leads</td><td class="num">2.500 €</td><td>≥ 25.000 Videoseher, ≥ 1.500 Event-Zusagen, ≥ 950 Tickets kumuliert</td></tr>
+      <tr><td><span class="pill blue">2</span> Frühbucher</td><td>12.10. – 15.11.</td><td>Verkauf hochfahren, Retargeting an, Familienticket &amp; Großeltern-Ticket, Frühbucher-Deadline 31.10.</td><td class="num">5.500 €</td><td>≥ 3.000 Tickets kumuliert (25 %), CPA ≤ 17 €</td></tr>
+      <tr><td><span class="pill amber">3</span> Geschenk-Peak</td><td>16.11. – 16.12.</td><td>Gutschein &amp; Geschenk-Motive, Nikolaus-Aktion, Weihnachtsmarkt-Geotargeting, höchstes Wochenbudget</td><td class="num">10.000 €</td><td>≥ 7.200 Tickets kumuliert (60 %), Retargeting-Pool ≥ 40.000</td></tr>
+      <tr><td><span class="pill">4</span> Spielzeit</td><td>17.12. – 03.01.</td><td>Tagesaktuelle Ads („heute 15 Uhr“), Besucherstimmen, „Zwischen den Jahren“, Silvester &amp; Neujahr</td><td class="num">8.000 €</td><td>12.000 Tickets, Auslastung schwacher Vorstellungen ≥ 75 %</td></tr>
+      <tr><td><span class="pill green">5</span> Nachlauf</td><td>04.01. – 31.01.</td><td>Dankes-Post, Umfrage, Newsletter-Aufbau, Zielgruppen für 2027 sichern</td><td class="num">1.000 €</td><td>Erstkäufer-Liste, Lookalike-Basis, Learnings dokumentiert</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid2">
+    <div class="card gold">
+      <h4>5 Entscheidungen, die den Erfolg bestimmen</h4>
+      <ol style="margin:0; padding-left:4.5mm;">
+        <li><b>Verkaufskampagne ab Tag 1</b> – nicht erst Reichweite, dann Traffic. Reichweite läuft parallel, Traffic-Kampagnen entfallen.</li>
+        <li><b>Purchase-Tracking im Ticketshop</b> (Pixel + Conversions API) ist Voraussetzung. Ohne das kein skalierbarer Verkauf.</li>
+        <li><b>Drei Generationen als Kernmotiv</b> – Großeltern (Facebook) und Eltern (Instagram) werden getrennt angesprochen.</li>
+        <li><b>Angebote mit Deadlines</b>: Frühbucher bis 31.10., Geschenk-Gutschein bis 23.12., Familienticket dauerhaft.</li>
+        <li><b>Budget folgt der Kaufkurve</b>: 67 % des Budgets ab 16.11., weil dann gekauft wird.</li>
+      </ol>
+    </div>
+    <div class="card cream">
+      <h4>Verkaufskurve (Meilensteine kumuliert)</h4>
+      <div class="kpi-row"><span>bis 11.10. · Ende Aufmerksamkeit</span><div class="bar"><i style="width:8%"></i></div><b class="num">960 (8 %)</b></div>
+      <div class="kpi-row"><span>bis 15.11. · Ende Frühbucher</span><div class="bar"><i style="width:25%"></i></div><b class="num">3.000 (25 %)</b></div>
+      <div class="kpi-row"><span>bis 16.12. · Vor Premiere</span><div class="bar"><i style="width:60%"></i></div><b class="num">7.200 (60 %)</b></div>
+      <div class="kpi-row"><span>bis 03.01. · Ende Spielzeit</span><div class="bar"><i style="width:100%"></i></div><b class="num">12.000</b></div>
+      <p class="small muted" style="margin-top:2mm;">Eventbrite-Daten: 57 % aller Tickets werden in der letzten Woche vor dem Termin gekauft. Familien-Weihnachtsshows liegen niedriger, weil Geschenk-Käufe im Dezember vorziehen. Der Plan rechnet bewusst mit 40 % Verkauf ab Premiere.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 2. AUSGANGSLAGE & ZIELMATHEMATIK ===================== -->
+<div class="page">
+  <div class="kicker">2 · Ausgangslage &amp; Ziel-Mathematik</div>
+  <h2>Was 12.000 Tickets konkret bedeuten</h2>
+
+  <div class="grid2">
+    <div>
+      <h3>Ausgangslage</h3>
+      <ul>
+        <li><b>Erste Ausgabe</b> – keine Bekanntheit, keine Käuferdaten, kein Pixel-Verlauf. Jede Kampagne startet in der Lernphase.</li>
+        <li><b>Spielort Rathausplatz</b> – mitten in der Stadt, direkt neben Weihnachtsmarkt (19.11.–23.12.) und Eisbahn. Hohe Laufkundschaft, aber auch Konkurrenz um Aufmerksamkeit.</li>
+        <li><b>Vorverkauf läuft seit 01.08.</b> (Ticketshop, Vorverkaufsstellen, Recklinghäuser Zeitung).</li>
+        <li><b>Positionierung</b>: Nostalgie, Atmosphäre, Schnee in der Manege, Familienerlebnis für Großeltern, Eltern und Kinder. Keine „größer, lauter, schneller“-Show.</li>
+        <li><b>Zeitfenster</b>: 15 Wochen bis Premiere. Das reicht, ist aber ohne Verzögerung zu planen.</li>
+        <li><b>Nächster Wettbewerber</b>: Gelsenkirchener Weihnachtscircus (Circus Probst, 28. Ausgabe, ~40 Vorstellungen, 15 km entfernt) sowie Flic Flac in Dortmund.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Ziel-Mathematik (Annahmen markiert)</h3>
+      <table>
+        <tbody>
+          <tr><td>Tickets gesamt</td><td class="num"><b>12.000</b></td></tr>
+          <tr><td>Spieltage 17.12. – 03.01.</td><td class="num">18</td></tr>
+          <tr><td>Sitzplätze im Zelt (laut Presse)</td><td class="num">≈ 1.316</td></tr>
+          <tr><td>Vorstellungen (Annahme: 1–2/Tag, Ruhetag 24.12.)</td><td class="num">≈ 28–32</td></tr>
+          <tr><td>Nötige Auslastung pro Vorstellung</td><td class="num">≈ 375–430 Tickets (≈ 30 %)</td></tr>
+          <tr><td>Ø Tickets pro Bestellung (Familien, Annahme)</td><td class="num">3,4</td></tr>
+          <tr><td>Bestellungen gesamt</td><td class="num"><b>≈ 3.530</b></td></tr>
+          <tr><td>Ø Ticketpreis (Annahme, Mix Erw./Kind/Familie)</td><td class="num">≈ 28 €</td></tr>
+          <tr><td>Bruttoumsatz Tickets</td><td class="num">≈ 336.000 €</td></tr>
+        </tbody>
+      </table>
+      <div class="callout warn small"><b>Bitte prüfen:</b> Vorstellungsplan und Preisliste liegen mir nicht vor; die Platzzahl stammt aus der Presse. Die Annahmen sind so gewählt, dass sich das Budget daraus ableiten lässt. Bei anderen Werten bitte die Tabelle in Abschnitt 8 anpassen.</div>
+    </div>
+  </div>
+
+  <h3>Was Meta beitragen muss</h3>
+  <table>
+    <thead><tr><th>Kanal</th><th class="num">Anteil (Annahme)</th><th class="num">Tickets</th><th>Warum</th></tr></thead>
+    <tbody>
+      <tr><td><b>Meta Ads (Facebook/Instagram)</b></td><td class="num">45 %</td><td class="num">5.400</td><td>Einziger Kanal, der Familien im 25-km-Radius gezielt und messbar erreicht. Trägt zusätzlich den Großteil der Bekanntheit.</td></tr>
+      <tr><td>Lokale Presse / Partner (RZ, Stadt, Plakate)</td><td class="num">25 %</td><td class="num">3.000</td><td>Vertrauen, Reichweite bei 60+, Vorverkaufsstellen.</td></tr>
+      <tr><td>Organisch / Empfehlung / Google-Suche (Marke)</td><td class="num">15 %</td><td class="num">1.800</td><td>Entsteht durch die Meta-Reichweite; Google-Brand-Kampagne empfohlen (kleines Zusatzbudget).</td></tr>
+      <tr><td>Abendkasse / Laufkundschaft Weihnachtsmarkt</td><td class="num">10 %</td><td class="num">1.200</td><td>Zeltstandort mitten in der Stadt.</td></tr>
+      <tr><td>Gruppen, Schulen, Kitas, Firmen</td><td class="num">5 %</td><td class="num">600</td><td>Direktvertrieb, füllt Vormittags-/Werktagsvorstellungen.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid3">
+    <div class="card cream"><div class="stat">≈ 1.600</div><div class="label">Bestellungen über Meta</div><p class="small" style="margin-top:1.5mm;">5.400 Tickets ÷ 3,4</p></div>
+    <div class="card cream"><div class="stat">≈ 17 €</div><div class="label">Ziel-CPA pro Bestellung</div><p class="small" style="margin-top:1.5mm;">27.000 € ÷ 1.600 · entspricht ≈ 5 € pro Ticket bzw. ROAS ≈ 5,6</p></div>
+    <div class="card cream"><div class="stat">≈ 8 %</div><div class="label">Meta-Budget vom Bruttoumsatz</div><p class="small" style="margin-top:1.5mm;">Üblich für Live-Entertainment im ersten Jahr: 8–12 % Gesamt-Marketing.</p></div>
+  </div>
+</div>
+
+<!-- ===================== 3. KONKURRENZANALYSE ===================== -->
+<div class="page">
+  <div class="kicker">3 · Konkurrenzanalyse</div>
+  <h2>Wer im Umkreis um dieselben Familien wirbt</h2>
+  <p class="small muted">Recherche vom 02.09.2026 über öffentliche Websites, Ticketshops, Presse und Social-Profile. Direkt beobachtete Fakten sind mit [B] markiert, Ableitungen mit [I]. Die Meta-Werbebibliothek war aus dieser Umgebung nicht abrufbar und sollte vor Kampagnenstart manuell geprüft werden (Suchbegriffe: Roncalli, Flic Flac, Gelsenkirchener Weihnachtscircus).</p>
+
+  <table class="small">
+    <thead><tr><th style="width:17%">Wettbewerber</th><th style="width:13%">Ort · Saison 26/27</th><th style="width:12%">Preise</th><th style="width:22%">Positionierung</th><th style="width:18%">Angebote &amp; Kanäle</th><th>Social · Relevanz für RE</th></tr></thead>
+    <tbody>
+      <tr><td><b>Gelsenkirchener Weihnachtscircus</b><br>Circus Probst, 29. Ausgabe [B]</td><td>Revierpark Nienhausen (Zelt)<br>11.12.26 – 03.01.27, tägl. 15:00 &amp; 19:30 [B]</td><td>24–55 €, Kinder −4/−5 € [B]</td><td>Klassischer Familienzirkus mit Tieren (Pferdedressur), Live-Orchester, Tradition seit 1997 [B]</td><td>Reservix-Shop, WAZ-Leserläden, Groupon −24 %, Familienticket-Verlosungen über Lokalmedien [B]</td><td>IG 5.100 [B]<br><span class="pill">direkt</span> 15 km, gleiche Termine, gleiche Familien</td></tr>
+      <tr><td><b>Flic Flac X-MAS Show Dortmund</b><br>15. Ausgabe [B]</td><td>Westfalenhallen (Zelt)<br>ab 10.12.26 [B]</td><td>30–75 €, Ermäßigung −5 € [B]</td><td>„Modern Art of Circus“, Adrenalin (Globe of Speed, Motorräder), tierfrei, 2 h 20 min [B]</td><td>Vorverkauf seit April, Reservix, Radio-Gutscheine −50 %, Firmen-Weihnachtsfeiern [B]</td><td>FB 62.000, IG 29.000, Agentur-geführt [B]<br><span class="pill amber">indirekt</span> anderes Publikum (Jugend, Erwachsene)</td></tr>
+      <tr><td><b>Flic Flac Duisburg</b> [B]</td><td>Alter Güterbahnhof<br>18.12.26 – 10.01.27 [B]</td><td>30–70 € [B]</td><td>wie Dortmund</td><td>wie Dortmund</td><td><span class="pill grey">gering</span> 45 km</td></tr>
+      <tr><td><b>Roncalli Weihnachtscircus</b><br>Berlin, Osnabrück, Bremen [B]</td><td>Halle/Zelt, 17.12. – 03.01. [B]</td><td>37–106 € (Berlin), 26–83 € (Osnabrück) [B]</td><td>Poesie, Nostalgie, Live-Orchester, tierfrei, „Weihnachtswunderwelt“ [B]</td><td>Family &amp; Friends ab 76 €, Gruppen −20 %, Gutscheine nur Kasse/Hotline [B]</td><td>Marke FB 70.000 [B]<br><span class="pill blue">Vorbild</span> Positionierung, aber 150+ km entfernt</td></tr>
+      <tr><td><b>Essener Weihnachtscircus</b><br>Circus Altano, 8. [B]</td><td>Essen-Werden<br>18.12. – 06.01. [B]</td><td>Erw. ab 18 €, Kind ab 16 € [B]</td><td>„Traumwelten“, Märchen, Luftakrobatik, ca. 2 h [B]</td><td>Familientag Do (alle Plätze 10 €), So 11 Uhr Erw. zahlen Kinderpreis, Reservix [B]</td><td>IG &lt; 200 [B]<br><span class="pill amber">Preisdruck</span> 25 km</td></tr>
+      <tr><td><b>Dortmunder Weihnachtscircus</b><br>Circus Verona, 4. [B]</td><td>Wambel<br>19.12. – 06.01. [B]</td><td>ab 15 € Aktionsabend [B]</td><td>Familie, „Weihnachtszauber“ [B]</td><td>Eventim, Hotline [B]</td><td><span class="pill grey">gering</span></td></tr>
+      <tr><td><b>Dorstener Weihnachtscircus</b><br>Circus Fantastico [B]</td><td>Festplatz Hervest<br>11.12. – 04.01. [B]</td><td>14–30 € [B]</td><td>Kleiner Familienzirkus [B]</td><td>Familientage Mo–Mi (Erw. = Kinderpreis), Heiligabend 10 € [B]</td><td><span class="pill amber">Preisdruck</span> 20 km, Kreis RE</td></tr>
+      <tr><td><b>Kölner Weihnachtscircus</b> (Benchmark) [B]</td><td>Palastzelt Zoobrücke<br>27.11. – 03.01. [B]</td><td>25–95 € [B]</td><td>Klassisch, Artistik, Ballett, Musik [B]</td><td>Vorverkauf seit März, Family &amp; Friends ab 4 Pers. mit Gratis-Popcorn, Partnertage [B]</td><td>IG 8.000 [B]<br><span class="pill blue">Vorbild</span> Angebotsmechanik</td></tr>
+      <tr><td><b>Lokale Alternativen</b> [B]</td><td colspan="5">Weihnachtsmarkt Recklinghausen 19.11. – 23.12. mit Eisbahn (gleicher Veranstalter, Synergie statt Konkurrenz) · Cranger Weihnachtszauber Herne 19.11. – 30.12. · Castroper Weihnachtsdorf · Bochumer Weihnacht. <b>Kein etablierter Weihnachtscircus in Bochum, Herne, Marl, Herten, Haltern, Datteln, Oer-Erkenschwick, Waltrop; Münster inaktiv.</b></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout ok small"><b>Kernbefund:</b> Der nördliche Kreis Recklinghausen (ca. 620.000 Einwohner) ist ein weißer Fleck. Der einzige direkte Wettbewerber im 15-km-Radius ist Gelsenkirchen mit klassischem Tierzirkus-Profil und Groupon-Rabatten. Niemand in der Region wirbt mit Frühbucher, echtem Familienticket 2+2, digitalem Geschenk-Gutschein oder Angeboten für Kitas und Schulen.</div>
+</div>
+
+<div class="page">
+  <div class="kicker">3 · Konkurrenzanalyse (Fortsetzung)</div>
+  <h2>Muster, Lücken und was wir daraus machen</h2>
+
+  <div class="grid2">
+    <div class="card cream">
+      <h4>Wie die Konkurrenz kommuniziert [B/I]</h4>
+      <ul class="small">
+        <li><b>Drei Lager:</b> Poesie/Nostalgie (Roncalli, hochpreisig, weit weg) · Spektakel (Flic Flac) · klassischer Familienzirkus mit Tieren (Probst, Altano, Verona).</li>
+        <li><b>Traditionsbeweis durch Zählung</b> („28.“, „14.“, „10.“) und jährliches Show-Motto. Eine erste Ausgabe kann das nicht, muss also Herkunft (Rathausplatz, „euer Circus“) und Macher (Programmchef mit Roncalli-Vita) betonen.</li>
+        <li><b>Creatives:</b> Artistik-Reels, Zeltaufbau, Gewinnspiele, Rabattcodes. Praktisch keine Familien-Testimonials, keine Kinderreaktionen, kein Großeltern-Motiv.</li>
+        <li><b>Vorverkauf:</b> Große Marken starten im März/April, kleine Zirkusse erst Ende November an der Kasse. Werbewellen: Ankündigung → Programmvorstellung Okt./Nov. → Gewinnspiele Ende Nov. → Premierenberichte.</li>
+        <li><b>Preisstaffel:</b> 4–6 Kategorien, Ermäßigung pauschal −4/−5 €, Wochentage günstiger, Familientage an schwachen Terminen.</li>
+        <li><b>Rabattkanäle:</b> Groupon (−24 % bis −50 %), Radio-Gutscheine, Lokalmedien-Verlosungen. Das drückt die Preiswahrnehmung im Revier.</li>
+      </ul>
+    </div>
+    <div class="card cream">
+      <h4>Lücken, die Recklinghausen besetzen kann [I]</h4>
+      <ul class="small">
+        <li><b>Nostalgie ohne Anfahrt:</b> „Roncalli-Atmosphäre“ gibt es in NRW nur in Köln oder weit entfernt. Recklinghausen kann das mittlere Preissegment (25–60 €) mit poetischem Profil besetzen.</li>
+        <li><b>Echtes Familienticket 2+2:</b> Kein Anbieter im Ruhrgebiet hat es. Köln und Roncalli bieten nur „ab 4 Personen“.</li>
+        <li><b>Großeltern-Enkel-Ticket:</b> Nirgends vorhanden, passt exakt zur Positionierung und füllt Werktags-Nachmittage.</li>
+        <li><b>Frühbucher:</b> Kein Wettbewerber wirbt damit. Sofort nutzbar, weil der Vorverkauf läuft.</li>
+        <li><b>Geschenk-Gutschein digital:</b> Roncalli verkauft Gutscheine nur an Kasse und Hotline. Gutscheine sind das meistgewünschte Weihnachtsgeschenk in Deutschland (33 %), Event-Tickets liegen bei 18 %.</li>
+        <li><b>Kitas, Schulen, Kindergeburtstage:</b> Wird von niemandem beworben; letzte Schulwoche 17.–23.12. bietet Vormittagsvorstellungen.</li>
+        <li><b>Standort:</b> Mitten im Weihnachtsmarkt-Fußverkehr, gleicher Veranstalter: QR-Codes an Ständen, Bundle mit Eisbahn, Cross-Posting über die Weihnachtsmarkt-Kanäle.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Differenzierung in einem Satz je Wettbewerber</h3>
+  <table class="small">
+    <thead><tr><th style="width:24%">Gegen …</th><th style="width:38%">Wir sagen (ohne den Wettbewerber zu nennen)</th><th>Wir vermeiden</th></tr></thead>
+    <tbody>
+      <tr><td>Gelsenkirchen (Probst)</td><td>„Poesie statt Dressur. Mitten in der Stadt, 5 Minuten vom Bahnhof.“ Tierfrei nur kommunizieren, falls es zutrifft.</td><td>Preiskampf, Groupon, Tier-Debatte</td></tr>
+      <tr><td>Flic Flac (Dortmund/Duisburg)</td><td>„Kein Motorrad, kein Lärm: ein Abend, den auch die Oma und der Dreijährige lieben.“</td><td>Vergleiche mit „Adrenalin“, Superlative</td></tr>
+      <tr><td>Essen / Dorsten (Low-Budget)</td><td>„Ein Zelt, das man nicht vergisst: 10.000 Lichter, Schnee in der Manege, Live-Musik.“ Qualität statt Rabatt.</td><td>Familientage unter 15 €, Preisrutsch</td></tr>
+      <tr><td>Roncalli (Vorbild)</td><td>„Die Atmosphäre, für die man bisher nach Köln oder Bremen fahren musste.“</td><td>Nutzung des Namens oder der Marke Roncalli in Anzeigen</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid2">
+    <div class="card gold">
+      <h4>Ist-Zustand Weihnachtscircus Recklinghausen (02.09.) [B]</h4>
+      <ul class="small">
+        <li>Presse-Ankündigung mit Vorverkaufsstart 01.08., ca. 1.316 Sitzplätze, Zelt mit über 10.000 LED-Lichtern, Clownerie, Tanz, Livemusik, internationale Artisten.</li>
+        <li>Veranstalter aREna Recklinghausen GmbH (auch Weihnachtsmarkt und Public Viewing), Programmchef Daniel Nekat (ehem. Roncalli).</li>
+        <li><b>Keine eigene Domain, keine Facebook-/Instagram-Profile und kein Ticketshop-Eintrag im Suchindex auffindbar.</b> Der Shop läuft vermutlich über ticket.io (wie das Public Viewing) [I].</li>
+      </ul>
+    </div>
+    <div class="card red">
+      <h4>Konsequenz für den Fahrplan</h4>
+      <ul class="small">
+        <li>Phase 0 hat Vorrang: Ohne Landingpage, Profile und Pixel gibt es nichts, worauf Anzeigen zeigen oder lernen können.</li>
+        <li>Meta-Werbebibliothek vor dem 14.09. manuell prüfen: Läuft Gelsenkirchen schon Anzeigen im Radius? Dann Reichweite (K1) früher hochfahren.</li>
+        <li>Angebote so bauen, dass sie in der Region einzigartig sind: Familienticket 2+2, Großeltern-Enkel-Ticket, digitaler Gutschein, Frühbucher bis 31.10.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================== 4. POSITIONIERUNG & ZIELGRUPPEN ===================== -->
+<div class="page">
+  <div class="kicker">4 · Positionierung &amp; Zielgruppen</div>
+  <h2>Eine Botschaft, drei Generationen</h2>
+
+  <div class="card red avoid" style="margin-bottom:4mm;">
+    <div class="label">Kernbotschaft</div>
+    <div style="font-family:'DejaVu Serif',Georgia,serif; font-size:15pt; line-height:1.3; margin:1.5mm 0;">„Der Weihnachtscircus, der Recklinghausen gehört.<br>Ein Zelt, Schnee in der Manege, und drei Generationen auf einer Bank.“</div>
+    <div class="small">Dachbotschaft für alle Motive. Sie betont Herkunft (Rathausplatz, „euer Zirkus“), Atmosphäre (Nostalgie, Schnee, Licht) und den gemeinsamen Moment statt Sensation.</div>
+  </div>
+
+  <table>
+    <thead><tr><th style="width:17%">Zielgruppe</th><th style="width:14%">Alter · Plattform</th><th style="width:26%">Was sie bewegt</th><th style="width:23%">Botschaft / Hook</th><th>Angebot</th></tr></thead>
+    <tbody>
+      <tr><td><b>A · Eltern mit Kindern 3–12</b><br><span class="small muted">Hauptzielgruppe, ca. 55 % Budget</span></td><td>28–45<br>Instagram Reels/Stories, Facebook Feed</td><td>Etwas Besonderes in den Ferien, „Weihnachtsritual“ starten, überschaubare Kosten, kurze Anfahrt, kindgerechte Dauer</td><td>„Das erste Mal Zirkus – und du bist dabei, wenn die Augen groß werden.“</td><td>Familienticket 2+2, Nachmittagsvorstellungen, Zwischen-den-Jahren-Termine</td></tr>
+      <tr><td><b>B · Großeltern</b><br><span class="small muted">Kaufkräftig, ca. 25 % Budget</span></td><td>55–75<br>Facebook Feed (fast ausschließlich), Instagram gering</td><td>Zeit mit Enkeln, Erinnerung an den Zirkus der eigenen Kindheit, Geschenk mit Sinn statt Spielzeug</td><td>„Erinnerst du dich an den Geruch von Sägespänen? Zeig es deinen Enkeln.“</td><td>Großeltern-Enkel-Ticket (1 Erw. + 1 Kind), Geschenk-Gutschein mit Weihnachtskarte</td></tr>
+      <tr><td><b>C · Paare &amp; Freundeskreise ohne Kinder</b><br><span class="small muted">Abendvorstellungen, ca. 10 % Budget</span></td><td>25–55<br>Instagram + Facebook</td><td>Stimmungsvoller Abend, Alternative zum Weihnachtsmarkt, Silvester-Programm</td><td>„Glühwein draußen, Gänsehaut drinnen.“</td><td>Abendvorstellungen, Silvester-Gala, Premiere</td></tr>
+      <tr><td><b>D · Multiplikatoren</b><br><span class="small muted">Kitas, Schulen, Vereine, Firmen, ca. 10 % Budget</span></td><td>30–60<br>Facebook, Lead-Formular</td><td>Gruppenausflug im Dezember, einfacher Buchungsweg, Sonderpreis</td><td>„Der Weihnachtsausflug, den keiner organisieren muss.“</td><td>Gruppenpreis Vormittagsvorstellungen 17.–23.12., Kindergeburtstag-Paket</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid2">
+    <div class="card cream">
+      <h4>Geografie (Radius um Rathausplatz)</h4>
+      <ul class="small">
+        <li><b>Kern 0–12 km</b>: Recklinghausen, Herten, Marl, Oer-Erkenschwick, Datteln, Castrop-Rauxel, Herne – ca. 600.000 Einwohner. Höchste Kaufwahrscheinlichkeit, Basis für Phase 4.</li>
+        <li><b>Erweitert 12–25 km</b>: Gelsenkirchen, Bochum, Dortmund-West, Gladbeck, Bottrop, Dorsten, Haltern, Waltrop, Essen-Nord – ca. 2,5 Mio. Einwohner. Prospecting in Phase 1–3.</li>
+        <li><b>Ausschluss</b>: Keine Ausweitung über 30 km, keine landesweite Ausspielung. Anfahrt &gt; 35 Min. senkt die Kaufrate deutlich.</li>
+      </ul>
+    </div>
+    <div class="card cream">
+      <h4>Nicht tun</h4>
+      <ul class="small">
+        <li>Keine Superlative („größte Show des Reviers“) – widerspricht der Positionierung und Meta bestraft Clickbait-Motive.</li>
+        <li>Keine Interessen-Schichtung mit 20 Interessen: Meta-Zielgruppen 2026 laufen breit besser; Interessen nur als „Vorschlag“ in Advantage+.</li>
+        <li>Nicht Instagram-only für Großeltern: 60+ ist auf Facebook. Platzierungen offen lassen, Alter steuert die Verteilung.</li>
+        <li>Keine Traffic-Kampagnen mit Klick-Optimierung (Begründung Abschnitt 6).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 5. KAMPAGNEN-ARCHITEKTUR ===================== -->
+<div class="page">
+  <div class="kicker">5 · Kampagnen-Architektur</div>
+  <h2>Sechs Kampagnen, klare Rollen</h2>
+  <p class="small muted">Struktur im Werbeanzeigenmanager. Budgetanteile beziehen sich auf das jeweilige Phasenbudget, nicht auf das Gesamtbudget.</p>
+
+  <table class="compact">
+    <thead><tr><th style="width:15%">Kampagne</th><th style="width:13%">Ziel / Optimierung</th><th style="width:22%">Zielgruppe</th><th style="width:20%">Motive</th><th style="width:10%">Aktiv</th><th>Budgetanteil · KPI</th></tr></thead>
+    <tbody>
+      <tr><td><b>K1 · Reichweite lokal</b><br><span class="small muted">„Der Circus kommt“</span></td><td>Bekanntheit → ThruPlay (Videoaufrufe) · alternativ Reichweite mit Frequenz-Cap 2/Woche</td><td>25 km Radius, 25–70, Advantage+ Platzierungen. Ausschluss: Käufer</td><td>Trailer 15–30 s, Zeltaufbau-Timelapse, „Zum ersten Mal in RE“</td><td>Ph. 1–3</td><td>15 % → 10 % → 5 %<br>KPI: Kosten pro ThruPlay ≤ 0,04 €, Reichweite ≥ 350.000</td></tr>
+      <tr><td><b>K2 · Verkauf Prospecting</b><br><span class="small muted">Herzstück</span></td><td>Umsatz → Purchase (Pixel/CAPI), Advantage+ Kampagnenbudget</td><td>Anzeigengruppe A: Advantage+ Zielgruppe 25–45, Vorschläge „Eltern“ · Anzeigengruppe B: 55–75 · Radius 25 km</td><td>4–6 Motive je Anzeigengruppe, wöchentlich 1 neues; Familienticket, 3-Generationen-Video, Spielplan-Karussell</td><td>Ph. 1–4</td><td>40 % → 50 % → 45 %<br>KPI: CPA ≤ 17 €, ROAS ≥ 5</td></tr>
+      <tr><td><b>K3 · Verkauf Retargeting</b></td><td>Umsatz → Purchase</td><td>Videoseher ≥ 25 % (60 T.), IG/FB-Interaktionen (90 T.), Website-Besucher (30 T.), Warenkorb ohne Kauf (7 T.), Event-Zusagen. Ausschluss: Käufer 30 T.</td><td>Angebots-Motive mit Deadline, Sitzplan/Spielplan-Karussell, Besucherstimmen, „Nur noch wenige Plätze am …“</td><td>Ph. 2–4</td><td>15 % → 20 % → 25 %<br>KPI: CPA ≤ 10 €, Frequenz ≤ 4/Woche</td></tr>
+      <tr><td><b>K4 · Community &amp; Facebook-Event</b></td><td>Interaktion → Event-Zusagen / Beitragsinteraktion</td><td>Kern-Radius 15 km, 25–70</td><td>Facebook-Event „Weihnachtscircus Recklinghausen 2026“, organische Top-Posts (Vorverkaufsstart, Making-of, Artisten-Vorstellung)</td><td>Ph. 1–3</td><td>10 % → 5 % → 5 %<br>KPI: Kosten pro Zusage ≤ 0,60 €, ≥ 4.000 Zusagen bis Premiere</td></tr>
+      <tr><td><b>K5 · Leads &amp; Gewinnspiel</b></td><td>Leads → Instant-Formular</td><td>Kern-Radius 15 km, 25–70 · später auch Multiplikatoren (Kitas, Vereine)</td><td>„Gewinne 2 Familientickets für die Premiere“, Frühbucher-Liste; ab Ph. 3: Gruppenanfrage-Formular</td><td>Ph. 1–2 (Gewinnspiel), Ph. 3 (Gruppen)</td><td>10 % → 5 %<br>KPI: Kosten pro Lead ≤ 1,50 €, ≥ 2.500 Kontakte (E-Mail-Liste = Retargeting + 2027)</td></tr>
+      <tr><td><b>K6 · Tagesaktuell &amp; Last Minute</b></td><td>Umsatz → Purchase · Anzeigen mit Tages-/Uhrzeitbezug</td><td>Radius 15 km, 25–70, alle, Ausschluss Käufer 3 T.</td><td>„Heute 15 Uhr noch Plätze“, Wetter-Hooks, Besucherstimmen vom Vorabend, Silvester/Neujahr</td><td>Ph. 4</td><td>25 % in Ph. 4<br>KPI: CPA ≤ 20 €, Auslastung schwacher Termine</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid2">
+    <div class="card cream">
+      <h4>Einstellungen, die für alle Kampagnen gelten</h4>
+      <ul class="small">
+        <li><b>Attribution</b>: 7 Tage Klick / 1 Tag View. Vergleiche immer mit Shop-Umsatz abgleichen (Meta zählt tendenziell 10–25 % zu viel).</li>
+        <li><b>Platzierungen</b>: Advantage+ (automatisch). Pflicht: jedes Motiv in 9:16 und 4:5, sonst verschenkt man Reels/Stories.</li>
+        <li><b>Budget</b>: Kampagnenbudget (Advantage+), Tagesbudget ≥ 5× Ziel-CPA in K2, damit die Lernphase abgeschlossen wird.</li>
+        <li><b>Landingpage</b>: Direkt zur Vorstellungsauswahl, nicht auf die Startseite. Ladezeit mobil &lt; 2,5 s.</li>
+        <li><b>Ausschlüsse</b>: Käufer (Purchase 30 Tage) aus K1, K2, K4; Mitarbeiter-/Partnerlisten.</li>
+        <li><b>Namensschema</b>: <span class="tiny">K2_Verkauf_Prospecting · AG_Eltern_25-45 · AD_3Gen_Video_v1</span></li>
+      </ul>
+    </div>
+    <div class="card cream">
+      <h4>Warum diese Struktur</h4>
+      <ul class="small">
+        <li>Zwei Verkaufskampagnen (Prospecting + Retargeting) trennen kalte und warme Zielgruppen, damit Budget und Botschaft steuerbar bleiben.</li>
+        <li>K1 und K4 sind bewusst günstig: Sie füllen die Retargeting-Töpfe und liefern soziale Bestätigung (Zusagen, Kommentare), die bei einer neuen Marke fehlt.</li>
+        <li>K5 baut die einzige eigene Datenbasis auf (E-Mail), die 2027 den Start beschleunigt.</li>
+        <li>Eine Kampagne pro Rolle, wenige Anzeigengruppen, viele Motive: So lernt der Algorithmus schneller als mit vielen kleinen Anzeigengruppen.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 6. WARUM NICHT REICHWEITE → TRAFFIC ===================== -->
+<div class="page">
+  <div class="kicker">6 · Kampagnenziel-Entscheidung</div>
+  <h2>Reichweite → Traffic vs. Verkauf ab Tag 1</h2>
+
+  <table>
+    <thead><tr><th style="width:22%">Kriterium</th><th style="width:39%">Ursprüngliche Idee: Reichweite, dann Traffic</th><th>Empfehlung: Verkauf ab Tag 1 + Reichweite parallel</th></tr></thead>
+    <tbody>
+      <tr><td><b>Wen erreicht die Kampagne?</b></td><td>Traffic-Kampagnen optimieren auf den günstigsten Klick. Meta findet Nutzer, die viel klicken, aber selten kaufen (häufig versehentliche Klicks in Audience Network, Klickfreudige ohne Kaufabsicht).</td><td>Purchase-Optimierung sucht Nutzer, die Käufern ähneln. Anfangs teurer pro Klick, deutlich günstiger pro Bestellung.</td></tr>
+      <tr><td><b>Lernphase</b></td><td>Kaufsignale werden erst nach dem Umschwenken gesammelt, also erst im November. Dann ist der Auktionsdruck (CPM) am höchsten.</td><td>Der Pixel lernt ab September bei niedrigen CPMs. Bis November hat die Kampagne Hunderte Käufe als Lernbasis.</td></tr>
+      <tr><td><b>Messbarkeit</b></td><td>Klicks und Landingpage-Aufrufe sagen nichts über Tickets. Budgetentscheidungen bleiben Bauchgefühl.</td><td>Jede Anzeige wird nach Kosten pro Bestellung und ROAS bewertet. Budget fließt zu den Motiven, die verkaufen.</td></tr>
+      <tr><td><b>Rolle der Reichweite</b></td><td>Richtig: Eine neue Marke braucht Bekanntheit.</td><td>Bleibt erhalten, aber als Video-Aufrufe (ThruPlay) mit klarer Aufgabe: Retargeting-Töpfe füllen und lokales Gespräch auslösen. 15 % des Budgets, nicht 50 %.</td></tr>
+      <tr><td><b>Risiko</b></td><td>Hohe Klickzahlen, schöne Berichte, zu wenig Tickets. Erst Anfang Dezember erkennbar, dann kaum noch korrigierbar.</td><td>Kleines Risiko: Verkaufskampagne braucht ca. 50 Käufe pro Woche, um stabil zu laufen. Deshalb Tagesbudget in K2 nicht unter 80–100 € und Frühbucher-Angebot als Kaufgrund.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid2">
+    <div class="callout ok"><b>Fazit:</b> Die Idee „erst Bekanntheit“ ist richtig, das Werkzeug „Traffic“ ist falsch. Reichweite läuft von Tag 1 parallel zur Verkaufskampagne. Traffic-Kampagnen werden nicht eingesetzt.</div>
+    <div class="callout warn"><b>Ausnahme (Plan B):</b> Falls der Ticketshop keinen Pixel/CAPI erlaubt, wird K2 auf das benutzerdefinierte Ereignis „Klick auf Ticketshop-Button“ (Landingpage) optimiert, nicht auf Link-Klicks. Die Landingpage wird dann Pflicht. Details Abschnitt 10.</div>
+  </div>
+
+  <h3>Wie die Kampagnen zusammenspielen</h3>
+  <table class="small">
+    <thead><tr><th>Stufe</th><th>Kampagne</th><th>Nutzer sieht</th><th>Signal für die nächste Stufe</th></tr></thead>
+    <tbody>
+      <tr><td>1 · Entdecken</td><td>K1 Reichweite, K4 Event</td><td>Trailer, Zeltaufbau, „Zum ersten Mal in Recklinghausen“</td><td>Videoaufruf ≥ 25 %, Zusage, Like, Kommentar</td></tr>
+      <tr><td>2 · Überzeugen</td><td>K2 Prospecting, K5 Gewinnspiel</td><td>Familienticket, 3-Generationen-Geschichte, Preise &amp; Termine</td><td>Landingpage-Besuch, Vorstellungsauswahl, Warenkorb, Lead</td></tr>
+      <tr><td>3 · Abschließen</td><td>K3 Retargeting</td><td>Deadline (Frühbucher/Gutschein), Sitzplan, Besucherstimmen, Restplätze</td><td>Kauf → Ausschluss aus 1–3</td></tr>
+      <tr><td>4 · Wiederholen</td><td>K6 Tagesaktuell</td><td>„Heute noch Plätze“, Empfehlung an Freunde, Silvester</td><td>Zweitkauf, Weiterempfehlung, E-Mail für 2027</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===================== 7. FAHRPLAN – PHASEN ===================== -->
+<div class="page">
+  <div class="kicker">7 · Fahrplan</div>
+  <h2>Phase für Phase: Was wann live geht</h2>
+
+  <div class="tl">
+    <div class="tl-months">
+      <div>Sep 1</div><div>Sep 2</div><div>Sep 3</div><div>Sep 4</div><div>Okt 1</div><div>Okt 2</div><div>Okt 3</div><div>Okt 4</div><div>Nov 1</div><div>Nov 2</div><div>Nov 3</div><div>Nov 4</div><div>Dez 1</div><div>Dez 2</div><div>Dez 3</div><div>Dez 4</div><div>Jan 1</div><div>Jan 2</div>
+    </div>
+    <div class="tl-row"><div class="tl-bar" style="grid-column:1/3; background:#8a8078;">0 Setup</div><div class="tl-bar" style="grid-column:3/7; background:var(--blue);">1 Aufmerksamkeit</div><div class="tl-bar" style="grid-column:7/12; background:#3f6ea8;">2 Frühbucher</div><div class="tl-bar" style="grid-column:12/16; background:var(--amber);">3 Geschenk-Peak</div><div class="tl-bar" style="grid-column:16/18; background:var(--red);">4 Spielzeit</div><div class="tl-bar" style="grid-column:18/19; background:var(--green);">5</div></div>
+    <div class="tl-row"><div class="tl-bar" style="grid-column:3/16; background:var(--gold); color:var(--ink);">K1 Reichweite lokal (Trailer → Zeltaufbau)</div></div>
+    <div class="tl-row"><div class="tl-bar" style="grid-column:3/18; background:var(--red-dark);">K2 Verkauf Prospecting (klein → groß)</div></div>
+    <div class="tl-row"><div class="tl-bar" style="grid-column:7/18; background:#a83a4a;">K3 Retargeting</div></div>
+    <div class="tl-row"><div class="tl-bar" style="grid-column:3/16; background:#6b8fbf;">K4 Facebook-Event &amp; Community</div></div>
+    <div class="tl-row"><div class="tl-bar" style="grid-column:3/11; background:#7c9c6c;">K5 Gewinnspiel-Leads</div><div class="tl-bar" style="grid-column:12/16; background:#7c9c6c;">K5 Gruppen</div></div>
+    <div class="tl-row"><div class="tl-bar" style="grid-column:16/18; background:var(--red); font-size:7pt;">K6 Tages-Ads</div></div>
+  </div>
+
+  <div class="avoid">
+    <div class="phase-head"><span class="phase-no">0</span><span class="phase-title">Setup</span><span class="phase-dates">02.09. – 13.09. · 0 € Media</span></div>
+    <div class="grid2">
+      <ul class="check small">
+        <li>Ticketshop prüfen: Meta-Pixel + Conversions API mit Purchase-Wert möglich? Falls nein: Plan B (Abschnitt 10)</li>
+        <li>Landingpage „weihnachtscircus-recklinghausen“ mit Vorstellungsauswahl, Preisen, Anfahrt, FAQ, Ticket-Button</li>
+        <li>Facebook-Seite + Instagram-Konto, Facebook-Event angelegt, Business-Manager, Domain verifiziert</li>
+        <li>Angebote final: Frühbucher (bis 31.10.), Familienticket, Großeltern-Enkel-Ticket, Gutschein, Gruppenpreis</li>
+      </ul>
+      <ul class="check small">
+        <li>Creative-Produktion: Trailer (Artisten-Material + Rendering Zelt/Rathausplatz), 6 statische Motive, 3 Reels</li>
+        <li>Gewinnspiel-Mechanik + Teilnahmebedingungen, Newsletter-Tool (Double-Opt-in)</li>
+        <li>Zielgruppen angelegt (Radius, Alter, Custom Audiences leer, aber vorbereitet)</li>
+        <li>Testkauf mit Pixel-Helper &amp; Events-Manager verifiziert, UTM-Schema festgelegt</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="avoid">
+    <div class="phase-head"><span class="phase-no">1</span><span class="phase-title">Aufmerksamkeit &amp; erster Verkauf</span><span class="phase-dates">14.09. – 11.10. · 2.500 € · ca. 90 €/Tag</span></div>
+    <div class="grid2">
+      <div class="small">
+        <b>Live:</b> K1 Reichweite (Trailer, 25 km), K2 Verkauf klein (Familienticket + Frühbucher), K4 Facebook-Event, K5 Gewinnspiel „2 Familientickets Premiere“.<br>
+        <b>Botschaft:</b> „Zum ersten Mal: Ein Weihnachtscircus auf dem Rathausplatz.“ Neuheit + Herkunft.<br>
+        <b>Offline-Anker:</b> Presse-Termin, Plakate, Vorverkaufsstellen erwähnen „Frühbucher bis 31.10.“.
+      </div>
+      <div class="small">
+        <b>Budget-Split:</b> K1 30 % · K2 40 % · K4 15 % · K5 15 %<br>
+        <b>Ziele bis 11.10.:</b> 25.000 ThruPlays, 1.500 Event-Zusagen, 1.200 Leads, 950 Tickets kumuliert, CPA K2 ≤ 22 € (Lernphase toleriert).<br>
+        <b>Entscheidung am 11.10.:</b> Welche 2 Motive verkaufen? Diese werden Basis für Phase 2. Läuft K2 unter 40 Käufen/Woche → Tagesbudget K2 auf 100 € erhöhen, K1 senken.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="kicker">7 · Fahrplan (Fortsetzung)</div>
+  <h2>Phasen 2 bis 5</h2>
+
+  <div class="avoid">
+    <div class="phase-head"><span class="phase-no">2</span><span class="phase-title">Frühbucher &amp; Retargeting</span><span class="phase-dates">12.10. – 15.11. · 5.500 € · ca. 160 €/Tag</span></div>
+    <div class="grid2">
+      <div class="small">
+        <b>Live:</b> K2 hochfahren (2 Anzeigengruppen: Eltern / Großeltern), K3 Retargeting startet, K1 wechselt auf „Making-of“ &amp; Artisten-Porträts, K4 weiter, K5 endet am 31.10. (Gewinnspiel-Auslosung als Content).<br>
+        <b>Botschaft:</b> „Frühbucher bis 31.10.“ → ab 01.11. „Familienticket &amp; Großeltern-Enkel-Ticket“.<br>
+        <b>Lokaler Moment:</b> „Recklinghausen leuchtet“ (23.10.–08.11.) und verkaufsoffener Sonntag 08.11.: Geotargeting Innenstadt 2 km, Stories mit QR/Link, Promo-Team mit Flyer am Rathausplatz.
+      </div>
+      <div class="small">
+        <b>Budget-Split:</b> K1 15 % · K2 50 % · K3 15 % · K4 10 % · K5 10 %<br>
+        <b>Ziele bis 15.11.:</b> 3.000 Tickets kumuliert, CPA K2 ≤ 17 €, Retargeting-Pool ≥ 25.000 Personen, Event-Zusagen ≥ 3.000.<br>
+        <b>Deadline-Push:</b> 27.–31.10. Budget K3 verdoppeln („Nur noch 3 Tage Frühbucher“).<br>
+        <b>Entscheidung am 15.11.:</b> Verkaufsstand &lt; 2.400 (80 % vom Ziel) → Szenario „Offensiv“ (Abschnitt 8) aktivieren.
+      </div>
+    </div>
+  </div>
+
+  <div class="avoid">
+    <div class="phase-head"><span class="phase-no">3</span><span class="phase-title">Geschenk-Peak</span><span class="phase-dates">16.11. – 16.12. · 10.000 € · ca. 320 €/Tag, Spitze 450 €/Tag ab 06.12.</span></div>
+    <div class="grid2">
+      <div class="small">
+        <b>Live:</b> K2 mit Geschenk-Motiven („Ein Geschenk, das man gemeinsam erlebt“), K3 stärkstes Budget, K1 Zeltaufbau-Timelapse ab ca. 08.12. (echtes Zelt auf dem Rathausplatz = stärkstes Lokalmotiv), K4 Countdown, K5 Gruppenformular (Kitas, Vereine, Firmenweihnachtsfeier).<br>
+        <b>Momente:</b> Weihnachtsmarkt-Eröffnung 19.11. (Geotargeting Innenstadt), Black-Friday-Woche bewusst <i>ohne</i> Rabatt, stattdessen „Nikolaus-Aktion“ 04.–06.12. (z. B. Kinder-Überraschung im Ticket), verkaufsoffener Sonntag 13.12., Premiere-Countdown ab 10.12.
+      </div>
+      <div class="small">
+        <b>Budget-Split:</b> K1 10 % · K2 45 % · K3 25 % · K4 5 % · K5 5 % · Reserve 10 %<br>
+        <b>Ziele bis 16.12.:</b> 7.200 Tickets kumuliert, CPA K2 ≤ 18 € (CPM steigt im November saisonal um 30–90 %), Gutschein-Anteil ≥ 15 % der Bestellungen, Retargeting-Pool ≥ 40.000.<br>
+        <b>Creative-Rhythmus:</b> Jede Woche 2 neue Motive, jedes Motiv max. 3 Wochen aktiv.<br>
+        <b>Gutschein-Deadline:</b> Print@home bis 23.12. 18 Uhr bewerben („noch rechtzeitig unter dem Baum“).
+      </div>
+    </div>
+  </div>
+
+  <div class="avoid">
+    <div class="phase-head"><span class="phase-no">4</span><span class="phase-title">Spielzeit</span><span class="phase-dates">17.12. – 03.01. · 8.000 € · ca. 440 €/Tag</span></div>
+    <div class="grid2">
+      <div class="small">
+        <b>Live:</b> K6 Tagesaktuell (Radius 15 km, Motive nach Vorstellung: „Heute 15 Uhr“, „Morgen 11 Uhr Familienvorstellung“), K2 und K3 mit Besucherstimmen &amp; Premieren-Fotos, Reels aus der Show (max. 8 s pro Nummer, kein ganzer Act).<br>
+        <b>Momente:</b> Premiere 17.12. (Presse, UGC), 24.12. Ruhetag/Ads pausieren bis 13 Uhr, 25.–26.12. „Familienausflug an den Feiertagen“, 27.12.–30.12. „Zwischen den Jahren“ (stärkste Verkaufstage!), 31.12. Silvester-Gala, 01.–03.01. „Letzte Chance“.
+      </div>
+      <div class="small">
+        <b>Budget-Split:</b> K2 35 % · K3 25 % · K6 30 % · Reserve 10 %<br>
+        <b>Ziele:</b> 12.000 Tickets, kein Termin unter 75 % Auslastung, CPA K6 ≤ 20 €.<br>
+        <b>Tägliche Routine (10 Min.):</b> Auslastung je Vorstellung prüfen → Budget in K6 auf die 3 schwächsten Termine der nächsten 48 h lenken. Ausverkaufte Termine aus Anzeigen entfernen.<br>
+        <b>UGC-Maschine:</b> Foto-Spot im Zelt (Schnee-Kulisse), Aufruf „Markiert uns“, täglich 3 Besucher-Reels reposten und als Anzeige verwenden (Einwilligung einholen).
+      </div>
+    </div>
+  </div>
+
+  <div class="avoid">
+    <div class="phase-head"><span class="phase-no">5</span><span class="phase-title">Nachlauf &amp; Basis für 2027</span><span class="phase-dates">04.01. – 31.01. · 1.000 €</span></div>
+    <div class="small">
+      Danke-Post &amp; Best-of-Video an alle Interaktionen (K4-Logik), Umfrage an Käufer (E-Mail), Newsletter „Vorverkauf 2027 zuerst erfahren“, Custom Audiences und Lookalike (Käufer 2026) sichern, Motiv-Ranking und CPA-Historie dokumentieren. Ziel: Start 2027 mit warmer Zielgruppe von ≥ 15.000 Personen und E-Mail-Liste ≥ 4.000.
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 8. BUDGET ===================== -->
+<div class="page">
+  <div class="kicker">8 · Budget &amp; Pacing</div>
+  <h2>Drei Szenarien, ein Wochenplan</h2>
+
+  <table class="compact">
+    <thead><tr><th>Szenario</th><th class="num">Meta-Budget</th><th class="num">Bestellungen via Meta</th><th class="num">Tickets via Meta</th><th class="num">Meta-Anteil am Ziel</th><th>Wann wählen</th></tr></thead>
+    <tbody>
+      <tr><td><b>Basis</b></td><td class="num">18.000 €</td><td class="num">≈ 1.060</td><td class="num">≈ 3.600</td><td class="num">30 %</td><td>Wenn Presse/Partner nachweislich stark verkaufen (Stand 15.11. ≥ 3.000 Tickets ohne Meta-Skalierung).</td></tr>
+      <tr style="background:var(--gold-light);"><td><b>Empfehlung</b></td><td class="num"><b>27.000 €</b></td><td class="num"><b>≈ 1.600</b></td><td class="num"><b>≈ 5.400</b></td><td class="num"><b>45 %</b></td><td>Standardplan. Deckt Bekanntheit einer neuen Marke plus Verkauf.</td></tr>
+      <tr><td><b>Offensiv</b></td><td class="num">36.000 €</td><td class="num">≈ 2.000</td><td class="num">≈ 6.800</td><td class="num">57 %</td><td>Wenn am 15.11. weniger als 2.400 Tickets verkauft sind oder ein Wettbewerber stark in RE wirbt.</td></tr>
+    </tbody>
+  </table>
+  <p class="tiny muted" style="margin-bottom:1mm;">Annahme: CPA sinkt nicht linear mit Budget. Im Szenario Offensiv wird mit CPA ≈ 18 € gerechnet, weil zusätzliche Reichweite in kältere Zielgruppen geht.</p>
+
+  <h3 style="margin-top:2mm;">Wochenplan (Szenario Empfehlung, 27.000 €)</h3>
+  <table class="xcompact">
+    <thead><tr><th>KW</th><th>Woche</th><th>Phase</th><th class="num">Budget</th><th class="num">Tickets-Ziel kum.</th><th>Schwerpunkt</th></tr></thead>
+    <tbody>
+      <tr><td>36–37</td><td>02.09. – 13.09.</td><td>0</td><td class="num">0 €</td><td class="num">–</td><td>Setup, Tracking, Creatives</td></tr>
+      <tr><td>38</td><td>14.09. – 20.09.</td><td>1</td><td class="num">550 €</td><td class="num">400</td><td>Start K1, K2, K4, K5 · Neuheit</td></tr>
+      <tr><td>39</td><td>21.09. – 27.09.</td><td>1</td><td class="num">600 €</td><td class="num">550</td><td>Motiv-Test 3-Generationen vs. Familienticket</td></tr>
+      <tr><td>40</td><td>28.09. – 04.10.</td><td>1</td><td class="num">650 €</td><td class="num">750</td><td>Herbstferien NRW beginnen (12.10.): Familien planen</td></tr>
+      <tr><td>41</td><td>05.10. – 11.10.</td><td>1</td><td class="num">700 €</td><td class="num">950</td><td>Auswertung Phase 1, Gewinner-Motive festlegen</td></tr>
+      <tr><td>42</td><td>12.10. – 18.10.</td><td>2</td><td class="num">900 €</td><td class="num">1.250</td><td>K3 Retargeting startet · Herbstferien</td></tr>
+      <tr><td>43</td><td>19.10. – 25.10.</td><td>2</td><td class="num">1.000 €</td><td class="num">1.600</td><td>„Recklinghausen leuchtet“ ab 23.10. · Geotargeting Innenstadt</td></tr>
+      <tr><td>44</td><td>26.10. – 01.11.</td><td>2</td><td class="num">1.400 €</td><td class="num">2.150</td><td>Frühbucher-Deadline 31.10. · Gewinnspiel-Auslosung</td></tr>
+      <tr><td>45</td><td>02.11. – 08.11.</td><td>2</td><td class="num">1.100 €</td><td class="num">2.550</td><td>Großeltern-Enkel-Ticket · verkaufsoffener Sonntag 08.11.</td></tr>
+      <tr><td>46</td><td>09.11. – 15.11.</td><td>2</td><td class="num">1.100 €</td><td class="num">3.000</td><td>Checkpoint 15.11. → Szenario-Entscheidung</td></tr>
+      <tr><td>47</td><td>16.11. – 22.11.</td><td>3</td><td class="num">1.800 €</td><td class="num">3.700</td><td>Geschenk-Motive · Weihnachtsmarkt-Eröffnung 19.11. · Warm-Zielgruppen vor CPM-Spitze füllen</td></tr>
+      <tr><td>48</td><td>23.11. – 29.11.</td><td>3</td><td class="num">2.000 €</td><td class="num">4.500</td><td>Black-Friday-Woche: Prospecting drosseln, Retargeting halten · kein Rabatt</td></tr>
+      <tr><td>49</td><td>30.11. – 06.12.</td><td>3</td><td class="num">2.600 €</td><td class="num">5.500</td><td>Nikolaus-Aktion 04.–06.12. · Großeltern-Push</td></tr>
+      <tr><td>50</td><td>07.12. – 13.12.</td><td>3</td><td class="num">3.600 €</td><td class="num">6.800</td><td>Zeltaufbau-Content · verkaufsoffener Sonntag 13.12.</td></tr>
+      <tr><td>51</td><td>14.12. – 20.12.</td><td>3→4</td><td class="num">3.400 €</td><td class="num">8.200</td><td>Premiere 17.12. · Besucherstimmen · Gutschein bis 23.12.</td></tr>
+      <tr><td>52</td><td>21.12. – 27.12.</td><td>4</td><td class="num">2.600 €</td><td class="num">9.900</td><td>Feiertage · Tagesaktuell · 24.12. Pause</td></tr>
+      <tr><td>53/1</td><td>28.12. – 03.01.</td><td>4</td><td class="num">3.000 €</td><td class="num">12.000</td><td>Zwischen den Jahren · Silvester · Letzte Chance</td></tr>
+      <tr><td>2–5</td><td>04.01. – 31.01.</td><td>5</td><td class="num">1.000 €</td><td class="num">–</td><td>Danke, Umfrage, Basis 2027</td></tr>
+      <tr><td colspan="3"><b>Summe</b></td><td class="num"><b>27.000 €</b></td><td class="num"><b>12.000</b></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout small"><b>Pacing-Regel:</b> Wochenbudget ist ein Rahmen, kein Gesetz. Liegt der kumulierte Ticketstand mehr als 15 % unter Plan, wird das Folgewochen-Budget um 30 % erhöht (aus der Reserve bzw. Szenario Offensiv). Liegt er 15 % über Plan, bleibt das Budget gleich und geht in schwächere Vorstellungstermine.</div>
+</div>
+
+<!-- ===================== 9. CREATIVE-PLAN ===================== -->
+<div class="page">
+  <div class="kicker">9 · Creative-Plan</div>
+  <h2>Motive, Hooks und Produktionsliste</h2>
+
+  <table class="xcompact">
+    <thead><tr><th style="width:5%">#</th><th style="width:19%">Konzept</th><th style="width:12%">Format</th><th style="width:27%">Hook (erste 2 Sekunden / erste Zeile)</th><th style="width:11%">Zielgruppe</th><th>Phase · Kampagne</th></tr></thead>
+    <tbody>
+      <tr><td>M1</td><td><b>Drei Generationen, eine Bank</b> – Oma, Mutter, Kind, gleicher Blick nach oben; Schnee rieselt</td><td>Video 20–30 s, 9:16 + 4:5</td><td>„Drei Generationen. Ein Zelt. Ein Abend, über den ihr noch lange redet.“</td><td>A, B</td><td>1–4 · K1, K2</td></tr>
+      <tr><td>M2</td><td><b>Erinnerst du dich?</b> – Retro-Look, Sägespäne, Zuckerwatte, Manegenlicht, alte Familienfotos</td><td>Video 15 s + Statisch</td><td>„Erinnerst du dich an deinen ersten Zirkus? Deine Enkel warten auf ihren.“</td><td>B</td><td>1–3 · K2 Großeltern</td></tr>
+      <tr><td>M3</td><td><b>Zum ersten Mal in Recklinghausen</b> – Rendering/Skizze Zelt auf dem Rathausplatz, später echter Aufbau</td><td>Statisch + Timelapse</td><td>„Der Rathausplatz bekommt ein Zelt. Und du einen neuen Weihnachtsbrauch.“</td><td>alle</td><td>1, 3 · K1, K4</td></tr>
+      <tr><td>M4</td><td><b>Familienticket</b> – Preis, Personen, Termin-Auswahl auf einen Blick</td><td>Statisch 4:5 + Karussell</td><td>„2 Erwachsene + 2 Kinder. Ein Preis. Keine Diskussion, wer mitkommt.“</td><td>A</td><td>1–4 · K2, K3</td></tr>
+      <tr><td>M5</td><td><b>Artisten-Momente</b> – 6–8 s Ausschnitte, ruhig, atmosphärisch (Luftakrobatik im Schnee, Clown mit Kind)</td><td>Reels 9:16</td><td>Ohne Text-Hook, Sound + Bild: Stille, dann Applaus</td><td>A, C</td><td>1–4 · K1, K2</td></tr>
+      <tr><td>M6</td><td><b>Geschenk, das man gemeinsam erlebt</b> – Gutschein in Weihnachtskarte, Hände von Oma und Kind</td><td>Statisch + Video 10 s</td><td>„Kein Spielzeug wird so lange in Erinnerung bleiben.“</td><td>B, A</td><td>3 · K2, K3</td></tr>
+      <tr><td>M7</td><td><b>Spielplan-Karussell</b> – Karte je Termin/Uhrzeit, „Familienvorstellung 15 Uhr“, Silvester, Neujahr</td><td>Karussell 1:1</td><td>„Welcher Tag passt zu euch?“</td><td>alle</td><td>2–4 · K3, K6</td></tr>
+      <tr><td>M8</td><td><b>Besucherstimmen (UGC)</b> – Handyvideos nach der Show, Kinderkommentare, Großeltern-Reaktion</td><td>Reels 9:16, Statisch mit Zitat</td><td>„Das sagen Familien nach der Premiere …“</td><td>alle</td><td>4 · K2, K3, K6</td></tr>
+      <tr><td>M9</td><td><b>Heute noch Plätze</b> – Tagesmotiv mit Uhrzeit, Wetter-Bezug („Draußen nass, drinnen Schnee“)</td><td>Statisch + Story</td><td>„Heute 15 Uhr: noch Plätze in der Manege.“</td><td>alle 15 km</td><td>4 · K6</td></tr>
+      <tr><td>M10</td><td><b>Gruppen &amp; Kitas</b> – Vormittagsvorstellung, Bus vor dem Zelt, Kinder in Reihe</td><td>Statisch + Lead-Formular</td><td>„Der Weihnachtsausflug, den keiner organisieren muss.“</td><td>D</td><td>3 · K5</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid2">
+    <div class="card cream">
+      <h4>Regeln, die für alle Motive gelten</h4>
+      <ul class="small">
+        <li>Erste 2 Sekunden entscheiden: Gesicht oder Manegenlicht, kein Logo-Intro.</li>
+        <li>Immer sichtbar: Ort (Rathausplatz), Zeitraum (17.12.–03.01.), Preis-Anker (z. B. „Familienticket ab …“).</li>
+        <li>Tonalität: warm, ruhig, ehrlich. Keine Superlative, keine Countdown-Hektik außer bei echten Deadlines.</li>
+        <li>Jedes Motiv in 9:16 (Reels/Stories) und 4:5 (Feed). Text im sicheren Bereich, Untertitel bei Video.</li>
+        <li>Primärtext ≤ 125 Zeichen vor dem „Mehr“, Überschrift ≤ 40 Zeichen, Button „Tickets sichern“.</li>
+        <li>Pro Anzeigengruppe 4–6 aktive Motive, wöchentlich 1–2 neue, Austausch nach 3 Wochen oder bei Frequenz &gt; 4.</li>
+      </ul>
+    </div>
+    <div class="card cream">
+      <h4>Produktionsliste bis 13.09.</h4>
+      <ul class="check small">
+        <li>Trailer 30 s (M1) inkl. 15-s-Schnitt und 6-s-Bumper – Artisten-Material der gebuchten Acts anfordern</li>
+        <li>Fotoshooting „3 Generationen“ (2 Familien, Retro-Zirkus-Set oder Bildmontage) – Basis für M1, M2, M6</li>
+        <li>Rendering Zelt auf Rathausplatz (M3) – 3 Perspektiven, Tag/Nacht</li>
+        <li>Statik-Set: Familienticket, Großeltern-Enkel-Ticket, Gutschein, Spielplan – je 9:16, 4:5, 1:1</li>
+        <li>3 Reels aus Artisten-Material (M5) mit Untertiteln</li>
+        <li>Text-Bank: 12 Primärtexte, 10 Überschriften (Vorlagen Abschnitt 11)</li>
+        <li>Ab 08.12.: Zeltaufbau-Timelapse (Kamera auf dem Rathaus), Premieren-Fotograf, UGC-Spot im Zelt</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 10. TRACKING & SETUP ===================== -->
+<div class="page">
+  <div class="kicker">10 · Tracking &amp; technisches Setup</div>
+  <h2>Ohne Purchase-Signal kein Verkauf</h2>
+
+  <div class="grid2">
+    <div>
+      <h3>Pflicht-Checkliste (Phase 0)</h3>
+      <ul class="check small">
+        <li><b>Meta-Pixel im Ticketshop</b> – Events: PageView, ViewContent (Vorstellung), InitiateCheckout, Purchase mit Wert &amp; Währung</li>
+        <li><b>Conversions API (CAPI)</b> – über Shop-Integration oder Server-Side-GTM; Event-Deduplizierung per event_id</li>
+        <li><b>Domain-Verifizierung</b> im Business-Manager, Aggregated Events konfiguriert</li>
+        <li><b>Testkauf</b> vollständig durch, Purchase im Events-Manager sichtbar, Wert korrekt</li>
+        <li><b>UTM-Schema</b>: utm_source=meta · utm_medium=paid · utm_campaign=K2_verkauf · utm_content=M1_3gen_v1</li>
+        <li><b>GA4</b> auf Landingpage + Shop (Cross-Domain), E-Commerce-Events</li>
+        <li><b>Custom Audiences</b> angelegt: Videoseher 25/50/75 %, IG/FB-Interaktion 90 T., Website 30 T., Warenkorb 7 T., Käufer 30 T., Leads</li>
+        <li><b>Consent-Banner</b> (TTDSG/DSGVO) mit Meta-Consent-Mode, damit Events rechtssicher ausgelöst werden</li>
+        <li><b>Wöchentlicher Abgleich</b> Meta-Käufe vs. Shop-Bestellungen (Tabelle) – Meta darf max. 25 % über Shop liegen</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Ticketshop-Realität prüfen</h3>
+      <table class="small">
+        <thead><tr><th>Shop-Typ</th><th>Eigener Pixel/CAPI?</th><th>Konsequenz</th></tr></thead>
+        <tbody>
+          <tr><td>Eigener Shop / White-Label (z. B. ticket.io, Eventim.Light, Reservix-Shop, Pretix)</td><td>Ja, meist Pixel + teilweise CAPI</td><td>Plan A: Purchase-Optimierung wie beschrieben</td></tr>
+          <tr><td>Marktplatz-Seite eines Ticketanbieters ohne Tracking-Zugang</td><td>Nein oder nur Klick-Tracking</td><td>Plan B (unten)</td></tr>
+          <tr><td>Vorverkaufsstellen / Telefon</td><td>Nein</td><td>Über Wochenabgleich als „nicht attribuiert“ mitzählen; Gutscheincode „META“ optional</td></tr>
+        </tbody>
+      </table>
+      <div class="callout warn small"><b>Plan B, falls kein Pixel im Shop:</b> Landingpage mit eigenem Pixel wird zur Pflicht-Zwischenseite. Benutzerdefinierte Conversion „Klick auf Tickets kaufen“ (Outbound-Klick) als Optimierungsereignis in K2/K3. Zusätzlich: Shop-Bestellungen täglich exportieren und als Offline-Conversions (E-Mail-Hash) hochladen. Ziel-CPA bezieht sich dann auf Shop-Weiterleitungen (Zielwert ≤ 1,80 €) und wird wöchentlich gegen Bestellungen kalibriert.</div>
+      <div class="callout small"><b>Empfehlung an den Veranstalter:</b> Falls der aktuelle Shop kein Tracking zulässt, lohnt sich bis Oktober der Wechsel auf ein System mit Pixel/CAPI (z. B. ticket.io oder Pretix). Der Mehraufwand ist klein, der Effekt auf die Kampagnenqualität groß.</div>
+    </div>
+  </div>
+
+  <h3>Konten &amp; Zugänge</h3>
+  <table class="small">
+    <thead><tr><th>Baustein</th><th>Status heute</th><th>Bis wann</th><th>Verantwortlich</th></tr></thead>
+    <tbody>
+      <tr><td>Business-Manager, Werbekonto, Zahlungsmethode, Rechnungsadresse</td><td>prüfen</td><td>05.09.</td><td>Veranstalter / Agentur</td></tr>
+      <tr><td>Facebook-Seite, Instagram-Konto, Facebook-Event, Impressum, Kontaktdaten</td><td>prüfen</td><td>05.09.</td><td>Veranstalter</td></tr>
+      <tr><td>Landingpage mit Ticket-Button, Preisen, Spielplan, Anfahrt, FAQ</td><td>anlegen</td><td>10.09.</td><td>Agentur</td></tr>
+      <tr><td>Pixel, CAPI, Testkauf, Custom Audiences, UTM</td><td>anlegen</td><td>12.09.</td><td>Agentur / Shop-Anbieter</td></tr>
+      <tr><td>Creatives Set 1 (M1–M5), Text-Bank</td><td>produzieren</td><td>13.09.</td><td>Agentur / Produktion</td></tr>
+      <tr><td>Angebote &amp; Preise final (Frühbucher, Familie, Großeltern, Gutschein, Gruppen)</td><td>entscheiden</td><td>08.09.</td><td>Veranstalter</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===================== 11. ANGEBOTE & TEXTE ===================== -->
+<div class="page">
+  <div class="kicker">11 · Angebote &amp; Text-Bank</div>
+  <h2>Kaufgründe mit Datum</h2>
+
+  <table class="small">
+    <thead><tr><th style="width:20%">Angebot</th><th style="width:18%">Zeitraum</th><th style="width:34%">Mechanik (Vorschlag)</th><th>Rolle in den Ads</th></tr></thead>
+    <tbody>
+      <tr><td><b>Frühbucher</b></td><td>bis 31.10.</td><td>10–15 % auf alle Kategorien oder Familienticket zum Frühbucherpreis; Code oder automatisch im Shop</td><td>Erster Kaufgrund in Phase 1–2, Deadline-Push 27.–31.10.</td></tr>
+      <tr><td><b>Familienticket 2+2</b></td><td>dauerhaft</td><td>2 Erw. + 2 Kinder, Ersparnis sichtbar (z. B. „spart 18 €“), zusätzliches Kind zum Kinderpreis</td><td>Dauerläufer in K2/K3, Motiv M4</td></tr>
+      <tr><td><b>Großeltern-Enkel-Ticket</b></td><td>ab 01.11.</td><td>1 Erw. (ab 60) + 1 Kind zum Paketpreis; nur Nachmittagsvorstellungen an Werktagen (füllt schwache Termine)</td><td>Alleinstellungsmerkmal, passt exakt zur Positionierung, Motiv M2</td></tr>
+      <tr><td><b>Geschenk-Gutschein</b></td><td>16.11. – 23.12.</td><td>Wertgutschein oder fester Termin, Print@home mit gestalteter Weihnachtskarte, „bis 23.12. 18 Uhr sofort per E-Mail“</td><td>Hauptmotiv Phase 3 (M6), Großeltern-Zielgruppe</td></tr>
+      <tr><td><b>Nikolaus-Aktion</b></td><td>04. – 06.12.</td><td>Kein Rabatt: kleine Überraschung für Kinder (Zuckerwatte-Gutschein / Nikolaus-Tüte) bei Kauf in diesen 3 Tagen</td><td>Anlass ohne Preisverfall, Alternative zu Black Friday</td></tr>
+      <tr><td><b>Gruppen / Kitas / Schulen</b></td><td>Vormittage 17.–23.12.</td><td>Gruppenpreis ab 15 Personen, Begleitperson frei, Rechnungskauf</td><td>Lead-Formular K5, Direktvertrieb per Telefon/E-Mail</td></tr>
+      <tr><td><b>Silvester-Gala &amp; Neujahr</b></td><td>31.12. / 01.01.</td><td>Silvester mit Sekt/Anstoßen nach der Show; Neujahr Familienvorstellung 15 Uhr</td><td>Zielgruppe C (Paare) und A, Motiv M7</td></tr>
+      <tr><td><b>Kindergeburtstag-Paket</b></td><td>Spielzeit</td><td>Tickets + Popcorn + Geburtstagsgruß aus der Manege</td><td>Nebenangebot, Retargeting an Eltern</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid2">
+    <div class="card cream">
+      <h4>Primärtexte (Vorlagen, ≤ 125 Zeichen vor „Mehr“)</h4>
+      <ul class="small arrowlist">
+        <li>Zum ersten Mal: Ein Weihnachtscircus mitten in Recklinghausen. Schnee in der Manege, 17.12.–03.01. auf dem Rathausplatz. 🎪</li>
+        <li>Oma erinnert sich, Mama filmt, das Kind staunt. Drei Generationen, eine Bank. Familienticket jetzt sichern.</li>
+        <li>Erinnerst du dich an deinen ersten Zirkus? Deine Enkel warten auf ihren. Großeltern-Enkel-Ticket ab 01.11.</li>
+        <li>Frühbucher bis 31.10.: Die besten Plätze für den ersten Weihnachtscircus in Recklinghausen.</li>
+        <li>Kein Spielzeug bleibt so lange in Erinnerung. Gutschein bis 23.12. sofort per E-Mail, rechtzeitig unter dem Baum.</li>
+        <li>Zwischen den Jahren gemeinsam raus: Familienvorstellung 15 Uhr, 5 Minuten vom Bahnhof, im warmen Zelt.</li>
+        <li>Heute 15 Uhr: noch Plätze in der Manege. Draußen nass, drinnen Schnee.</li>
+        <li>Der Weihnachtsausflug, den keiner organisieren muss: Gruppenpreis für Kitas, Schulen und Vereine.</li>
+      </ul>
+    </div>
+    <div class="card cream">
+      <h4>Überschriften (≤ 40 Zeichen)</h4>
+      <ul class="small arrowlist">
+        <li>Weihnachtscircus Recklinghausen</li>
+        <li>Familienticket sichern</li>
+        <li>Frühbucher bis 31.10.</li>
+        <li>Großeltern-Enkel-Ticket</li>
+        <li>Gutschein sofort per E-Mail</li>
+        <li>Schnee in der Manege ab 17.12.</li>
+        <li>Rathausplatz · 17.12.–03.01.</li>
+        <li>Heute noch Plätze</li>
+      </ul>
+      <h4>Call-to-Action</h4>
+      <p class="small">Button „Tickets sichern“ (Jetzt buchen). Für K4: „Interessiert“. Für K5: „Jetzt teilnehmen“ / „Angebot anfordern“.</p>
+      <h4>Rechtliches</h4>
+      <p class="small">Preise inkl. Gebühren angeben, Gewinnspiel-Bedingungen verlinken, Foto-Einwilligung bei UGC, keine Aussagen über Wettbewerber.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 12. KPIs & STEUERUNG ===================== -->
+<div class="page">
+  <div class="kicker">12 · KPIs, Steuerung &amp; Risiken</div>
+  <h2>Woran wir jede Woche erkennen, ob es läuft</h2>
+
+  <div class="grid2">
+    <div>
+      <h3>Wochen-Dashboard</h3>
+      <table class="compact">
+        <thead><tr><th>Kennzahl</th><th class="num">Zielwert</th><th>Grün / Rot</th></tr></thead>
+        <tbody>
+          <tr><td>Tickets kumuliert vs. Plan (Abschnitt 8)</td><td class="num">≥ 100 %</td><td>&lt; 85 % → Budget +30 %</td></tr>
+          <tr><td>CPA Bestellung K2 (Prospecting)</td><td class="num">≤ 17 €</td><td>&gt; 25 € über 5 Tage → Motive tauschen</td></tr>
+          <tr><td>CPA Bestellung K3 (Retargeting)</td><td class="num">≤ 10 €</td><td>&gt; 15 € → Frequenz prüfen, Pool erweitern</td></tr>
+          <tr><td>ROAS (Meta, 7-Tage-Klick)</td><td class="num">≥ 5,0</td><td>&lt; 3,5 → Szenario-Check</td></tr>
+          <tr><td>CPM Prospecting</td><td class="num">9–13 € (Sep–Okt), 15–24 € (Nov), 10–14 € (Dez)</td><td>&gt; 25 € → Platzierungen/Zielgruppe prüfen</td></tr>
+          <tr><td>Link-CTR K2</td><td class="num">≥ 1,2 %</td><td>&lt; 0,8 % → Hook schwach</td></tr>
+          <tr><td>Kosten pro ThruPlay (K1)</td><td class="num">≤ 0,04 €</td><td>&gt; 0,07 € → Video kürzen</td></tr>
+          <tr><td>Frequenz Retargeting / Woche</td><td class="num">≤ 4</td><td>&gt; 6 → Budget senken, Motiv wechseln</td></tr>
+          <tr><td>Retargeting-Pool (Personen)</td><td class="num">25k (15.11.) · 40k (16.12.)</td><td>zu klein → K1 erhöhen</td></tr>
+          <tr><td>Abgleich Meta-Käufe vs. Shop</td><td class="num">≤ +25 %</td><td>&gt; +25 % → Tracking prüfen</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3>Wochenrhythmus</h3>
+      <table class="compact">
+        <thead><tr><th>Tag</th><th>Aufgabe (Dauer)</th></tr></thead>
+        <tbody>
+          <tr><td>Montag</td><td>Report: Tickets vs. Plan, CPA je Kampagne/Motiv, Shop-Abgleich (45 Min.)</td></tr>
+          <tr><td>Dienstag</td><td>Budget-Entscheidung nach Pacing-Regel, Verlierer-Motive pausieren (20 Min.)</td></tr>
+          <tr><td>Mittwoch</td><td>2 neue Motive live, Kommentare beantworten (60 Min.)</td></tr>
+          <tr><td>Freitag</td><td>Wochenend-Check: Auslastung je Termin, K6-Vorbereitung ab Phase 4 (20 Min.)</td></tr>
+          <tr><td>täglich Ph. 4</td><td>10 Min.: schwächste 3 Vorstellungen → K6-Budget, ausverkaufte Termine entfernen</td></tr>
+        </tbody>
+      </table>
+      <h3>Skalierungs- und Stoppregeln</h3>
+      <ul class="small">
+        <li><b>Hochfahren:</b> CPA ≤ Ziel über 3 Tage → Budget +20 % alle 3 Tage (nie +50 % auf einmal, sonst Lernphase-Reset).</li>
+        <li><b>Motiv pausieren:</b> ≥ 150 € Ausgabe ohne Kauf oder CPA &gt; 2× Ziel über 5 Tage.</li>
+        <li><b>Nie pausieren wegen eines schlechten Tages</b> – Käufe laufen mit 1–3 Tagen Verzögerung ein.</li>
+        <li><b>Notbremse:</b> Tracking-Ausfall, Shop down, Policy-Ablehnung → betroffene Kampagne pausieren, Ursache beheben, dann fortsetzen.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Risiken &amp; Gegenmaßnahmen</h3>
+  <table class="compact">
+    <thead><tr><th style="width:28%">Risiko</th><th style="width:10%">Wahrsch.</th><th>Gegenmaßnahme</th></tr></thead>
+    <tbody>
+      <tr><td>Ticketshop ohne Pixel/CAPI</td><td><span class="pill amber">mittel</span></td><td>Plan B (Abschnitt 10), Shop-Wechsel bis Oktober prüfen</td></tr>
+      <tr><td>CPM-Spitze im November (Deutschland 2025: Okt 12 € → Nov 24 € → Dez 12 €)</td><td><span class="pill">hoch</span></td><td>Eingepreist: 30 % des Budgets vor 16.11. sichern Lernphase und günstige Reichweite; Black-Friday-Woche Prospecting drosseln, Dezember wieder hochfahren</td></tr>
+      <tr><td>Gelsenkirchener Weihnachtscircus wirbt im gleichen Radius</td><td><span class="pill">hoch</span></td><td>Klare Differenzierung: „mitten in der Stadt“, Nostalgie, Großeltern-Ticket, Schnee; kein Preiskampf</td></tr>
+      <tr><td>Creatives zu spät (kein Zelt, kein Show-Material vor Dezember)</td><td><span class="pill amber">mittel</span></td><td>Artisten-Material der gebuchten Acts, Rendering, Fotoshooting Familien; Zeltaufbau als Phase-3-Highlight einplanen</td></tr>
+      <tr><td>Verkauf startet langsam (neue Marke)</td><td><span class="pill amber">mittel</span></td><td>Frühbucher-Deadline, Gewinnspiel-Reichweite, Facebook-Event-Zusagen als soziale Bestätigung, Presse-Partner</td></tr>
+      <tr><td>Wetter / Ausfall / Erkrankung</td><td><span class="pill green">niedrig</span></td><td>Reserve 10 % Phase 3–4, Motiv „Draußen nass, drinnen Schnee“, flexible Umbuchung im Shop kommunizieren</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===================== 13. NÄCHSTE SCHRITTE & QUELLEN ===================== -->
+<div class="page">
+  <div class="kicker">13 · Nächste Schritte &amp; Quellen</div>
+  <h2>Was in den nächsten 10 Tagen passieren muss</h2>
+
+  <table class="compact">
+    <thead><tr><th style="width:6%">#</th><th style="width:44%">Aufgabe</th><th style="width:14%">Bis</th><th style="width:18%">Wer</th><th>Ergebnis</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ticketshop-Check: Pixel + Conversions API mit Purchase-Wert möglich? Kapazität, Vorstellungsplan und Preisliste liefern</td><td>05.09.</td><td>Veranstalter + Shop</td><td>Plan A oder Plan B entschieden, Ziel-Mathematik aktualisiert</td></tr>
+      <tr><td>2</td><td>Angebote beschließen: Frühbucher bis 31.10., Familienticket 2+2, Großeltern-Enkel-Ticket, Gutschein, Gruppenpreis, Nikolaus-Aktion</td><td>08.09.</td><td>Veranstalter</td><td>Preisblatt, im Shop angelegt</td></tr>
+      <tr><td>3</td><td>Facebook-Seite, Instagram, Facebook-Event, Business-Manager, Werbekonto, Domain</td><td>05.09.</td><td>Agentur</td><td>Konten live, Impressum, erste 3 organische Posts</td></tr>
+      <tr><td>4</td><td>Landingpage mit Vorstellungsauswahl, Preisen, Anfahrt, FAQ, Ticket-Button, Pixel, GA4, Consent</td><td>10.09.</td><td>Agentur</td><td>Mobil &lt; 2,5 s, Testkauf erfolgreich</td></tr>
+      <tr><td>5</td><td>Creative-Set 1: Trailer (30/15/6 s), Fotoshooting 3 Generationen, Zelt-Rendering, 6 Statik-Motive, 3 Reels, Text-Bank</td><td>13.09.</td><td>Agentur + Produktion</td><td>Alle Motive in 9:16 und 4:5, Untertitel, freigegeben</td></tr>
+      <tr><td>6</td><td>Meta-Werbebibliothek prüfen: Roncalli, Flic Flac, Gelsenkirchener Weihnachtscircus, aREna Recklinghausen</td><td>10.09.</td><td>Agentur</td><td>Screenshot-Sammlung, Anpassung K1-Start falls nötig</td></tr>
+      <tr><td>7</td><td>Gewinnspiel-Mechanik + Teilnahmebedingungen, Newsletter-Tool mit Double-Opt-in</td><td>12.09.</td><td>Agentur + Veranstalter</td><td>Lead-Formular getestet, E-Mail-Strecke steht</td></tr>
+      <tr><td>8</td><td>Kampagnen anlegen (K1, K2, K4, K5), Zielgruppen, Budgets, Namensschema, Freigabe</td><td>13.09.</td><td>Agentur</td><td>Start 14.09. 08:00 Uhr</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Annahmen, die dieses Dokument trägt</h3>
+  <ul class="small">
+    <li>Ø 3,4 Tickets pro Bestellung, Ø Ticketpreis 28 €, ca. 30 Vorstellungen bei 1.316 Plätzen (entspricht ca. 30 % Auslastung für 12.000 Tickets). Andere Werte ändern Budget und CPA-Ziel proportional.</li>
+    <li>Meta trägt 45 % der Tickets; Presse, Partner, Laufkundschaft und Gruppen den Rest. Wird Meta stärker gebraucht, gilt Szenario Offensiv.</li>
+    <li>Der Ticketshop erlaubt Pixel und Conversions API. Sonst greift Plan B (Abschnitt 10) mit angepassten Zielwerten.</li>
+    <li>Benchmarks (CPM, Kosten pro Ticket, Kaufzeitpunkte) sind Richtwerte aus den unten genannten Quellen und keine Garantien. Ab der zweiten Woche ersetzen eigene Kontodaten die Benchmarks.</li>
+  </ul>
+
+  <h3 style="margin-top:2mm;">Wichtigste Quellen (Recherche 02.09.2026)</h3>
+  <div class="grid2 tiny" style="line-height:1.25;">
+    <div>
+      <b>Event &amp; Region</b>
+      <ul>
+        <li>Recklinghäuser Zeitung: „Erster Weihnachtscircus in Recklinghausen“ (recklinghaeuser-zeitung.de, w1220255)</li>
+        <li>Stadt Recklinghausen: Weihnachtsmarkt 2025/2026, Recklinghausen leuchtet, verkaufsoffene Sonntage (recklinghausen.de)</li>
+        <li>aREna Recklinghausen GmbH (northdata.de), publicviewing-recklinghausen.ticket.io</li>
+      </ul>
+      <b>Wettbewerber</b>
+      <ul>
+        <li>gelsenkirchener-weihnachtscircus.de/preise-infos · adticket.de · groupon.de</li>
+        <li>flicflac-dortmund.de · flicflac-duisburg.de · reservix.de · ruhrnachrichten.de</li>
+        <li>roncalli.de (Saalplan &amp; Preise, Osnabrück, Bremen, FAQ) · tempodrom.de · berlin.de</li>
+        <li>koelner-weihnachtscircus.de/family-and-friends · weihnachtscircus-duesseldorf.de/tickets</li>
+        <li>4familii.de (Essen) · dortmunder-weihnachtscircus.de · superheldencircus.de (Dorsten) · circusantoni.de</li>
+      </ul>
+    </div>
+    <div>
+      <b>Meta-Benchmarks &amp; Best Practices</b>
+      <ul>
+        <li>SuperAds: CPM Deutschland nach Monat (Okt 25: 12,46 € · Nov 25: 23,74 € · Dez 25: 12,23 €)</li>
+        <li>WordStream Facebook Ads Benchmarks 2025 (Arts &amp; Entertainment: CTR 2,1 %, CPC 0,49 $)</li>
+        <li>Ticket Fairy: Kosten pro Ticket 3–12 $ · Eventbrite: 57 % der Tickets in der letzten Woche, Ø 18,5 Tage vorher</li>
+        <li>Meta Engineering (Andromeda, 12/2024) · Meta Help: Lernphase 50 Events/Woche, Advantage+ Platzierungen −11,7 % CPA</li>
+        <li>Jon Loomer: „Ads optimization is literal“, Traffic-Kampagnen &amp; Audience Network · MHI Growth Engine: Traffic vs. Conversion</li>
+        <li>Statista 2025: Gutscheine 33 %, Event-Tickets 18 % der Wunsch-Geschenke; 43 % kaufen im November</li>
+        <li>ARD/ZDF-Medienstudie 2025 · NapoleonCat DE 07/2025: Altersverteilung Facebook/Instagram</li>
+        <li>Traficum: Meta Ads für Ticketing 2026 (Fallstudie Zirkus, Optimierung auf Warenkorb, 2,66 € pro Ticket)</li>
+        <li>holgerkurtz.de: Tracking in Reservix / Eventim · eventim-light.de · support.universe.com</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
