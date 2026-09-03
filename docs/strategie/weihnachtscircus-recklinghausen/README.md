@@ -8,5 +8,6 @@ Stand: 02.09.2026 · Ziel: 12.000 Tickets, Spielzeit 17.12.2026 – 03.01.2027, 
 | `meta-ads-fahrplan.html` | HTML-Quelle des PDFs (Rendern mit headless Chromium: `chrome --headless --print-to-pdf=out.pdf --no-pdf-header-footer meta-ads-fahrplan.html`) |
 | `recherche-konkurrenz.md` | Ausführliche Wettbewerbsanalyse Weihnachtscircus Ruhrgebiet/NRW mit Quellen |
 | `recherche-meta-benchmarks.md` | Meta-Ads-Benchmarks und Best Practices für Event-Tickets (DACH, 2025/26) mit Quellen |
+| `copy-deck-k1-reichweite.md` | Primärtexte, Überschriften und Beschreibungen für Kampagne K1 Reichweite lokal (Phase 1) |
 
 Erstellt mit dem Claude-Ads-Skill (`AgriciDaniel/claude-ads`, Sub-Skills `ads-plan`, `ads-competitor`, `ads-meta`).
