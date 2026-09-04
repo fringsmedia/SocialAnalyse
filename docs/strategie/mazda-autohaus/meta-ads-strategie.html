@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Mazda-Autohaus – Meta-Ads-Strategie bei 20 € Tagesbudget</title>
+<style>
+  @page { size: A4; margin: 12mm 12mm 15mm 12mm;
+    @bottom-left { content: "Mazda-Autohaus · Meta-Ads-Strategie bei 20 € Tagesbudget"; font-family: "Liberation Sans", Arial, sans-serif; font-size: 7.4pt; color: #6B6259; }
+    @bottom-right { content: "Seite " counter(page); font-family: "Liberation Sans", Arial, sans-serif; font-size: 7.4pt; color: #6B6259; } }
+  @page :first { @bottom-left { content: none; } @bottom-right { content: none; } }
+  :root {
+    --red: #8B1E2D;
+    --red-dark: #5E1220;
+    --gold: #C9A227;
+    --gold-light: #F3E7BE;
+    --cream: #FBF7EE;
+    --ink: #1F1B17;
+    --muted: #6B6259;
+    --line: #E4DCCB;
+    --green: #2E6B3F;
+    --blue: #2B4C7E;
+    --amber: #B5651D;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Liberation Sans", Arial, Helvetica, sans-serif; color: var(--ink); font-size: 9.4pt; line-height: 1.34; background: #fff; }
+  h1, h2, h3, h4 { font-family: "DejaVu Serif", Georgia, serif; margin: 0; color: var(--red-dark); }
+  h1 { font-size: 26pt; line-height: 1.15; }
+  h2 { font-size: 16pt; margin-bottom: 3mm; padding-bottom: 1.5mm; border-bottom: 2px solid var(--gold); }
+  h3 { font-size: 12pt; margin: 4mm 0 2mm; color: var(--red); }
+  h4 { font-size: 10.5pt; margin: 3mm 0 1.5mm; color: var(--ink); font-family: "Liberation Sans", Arial, sans-serif; font-weight: bold; }
+  p { margin: 0 0 2.5mm; }
+  ul { margin: 0 0 2.5mm; padding-left: 4.5mm; }
+  li { margin-bottom: 0.9mm; }
+  table.compact th, table.compact td { padding: 0.9mm 1.5mm; font-size: 7.8pt; }
+  table.xcompact th, table.xcompact td { padding: 0.6mm 1.4mm; font-size: 7.4pt; line-height: 1.25; }
+  .page { page-break-before: always; position: relative; }
+  .page:first-child { page-break-before: auto; }
+  .kicker { font-size: 8.5pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: bold; margin-bottom: 2mm; }
+  .muted { color: var(--muted); }
+  .small { font-size: 8.2pt; }
+  .tiny { font-size: 7.4pt; }
+  table { width: 100%; border-collapse: collapse; margin: 0 0 3mm; font-size: 8.4pt; page-break-inside: auto; }
+  th, td { border: 1px solid var(--line); padding: 1.3mm 1.8mm; vertical-align: top; text-align: left; }
+  th { background: var(--red-dark); color: #fff; font-weight: bold; font-size: 8pt; letter-spacing: 0.02em; }
+  tr { page-break-inside: avoid; }
+  tbody tr:nth-child(even) td { background: var(--cream); }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .card { border: 1px solid var(--line); border-radius: 2mm; padding: 2.4mm 3mm; background: #fff; page-break-inside: avoid; }
+  .card.cream { background: var(--cream); }
+  .card.red { background: var(--red-dark); color: #fff; border-color: var(--red-dark); }
+  .card.red h3, .card.red h4 { color: var(--gold-light); }
+  .card.gold { background: var(--gold-light); border-color: var(--gold); }
+  .stat { font-family: "DejaVu Serif", Georgia, serif; font-size: 19pt; color: var(--red); line-height: 1; margin-bottom: 1mm; }
+  .card.red .stat { color: var(--gold); }
+  .label { font-size: 8.3pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .card.red .label { color: var(--gold-light); }
+  .pill { display: inline-block; padding: 0.6mm 2mm; border-radius: 3mm; font-size: 7.8pt; font-weight: bold; color: #fff; background: var(--red); margin-right: 1mm; white-space: nowrap; }
+  .pill.green { background: var(--green); } .pill.blue { background: var(--blue); } .pill.amber { background: var(--amber); } .pill.gold { background: var(--gold); color: var(--ink); } .pill.grey { background: #8a8078; }
+  .callout { border-left: 3px solid var(--gold); background: var(--cream); padding: 2.5mm 3.5mm; margin: 2.5mm 0 3.5mm; page-break-inside: avoid; }
+  .callout.warn { border-left-color: var(--amber); }
+  .callout.ok { border-left-color: var(--green); }
+  .footer { display: none; position: absolute; bottom: 0; left: 0; right: 0; font-size: 7.6pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1.5mm; display: flex; justify-content: space-between; }
+  .check li { list-style: none; position: relative; padding-left: 5mm; }
+  .check li:before { content: "☐"; position: absolute; left: 0; top: -0.2mm; color: var(--red); font-size: 10pt; }
+  .phase-head { display: flex; align-items: baseline; gap: 3mm; margin-bottom: 1.5mm; }
+  .phase-no { font-family: "DejaVu Serif", Georgia, serif; font-size: 20pt; color: var(--gold); line-height: 1; }
+  .phase-title { font-family: "DejaVu Serif", Georgia, serif; font-size: 13pt; color: var(--red-dark); }
+  .phase-dates { font-size: 9pt; color: var(--muted); }
+  /* Cover */
+  .cover { background: var(--red-dark); color: #fff; min-height: 266mm; padding: 18mm 16mm; border-radius: 3mm; position: relative; overflow: hidden; }
+  .cover .kicker { color: var(--gold); }
+  .cover h1 { color: #fff; font-size: 32pt; }
+  .cover .sub { font-size: 13pt; color: var(--gold-light); margin-top: 4mm; font-family: "DejaVu Serif", Georgia, serif; }
+  .cover .meta { position: absolute; bottom: 14mm; left: 16mm; right: 16mm; font-size: 9.5pt; color: var(--gold-light); border-top: 1px solid var(--gold); padding-top: 4mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+  .cover .meta b { display: block; color: #fff; }
+  .stars { position: absolute; right: 12mm; top: 12mm; font-size: 60pt; color: var(--gold); opacity: 0.35; line-height: 1; }
+  .ring { position: absolute; width: 190mm; height: 190mm; border: 1.5mm solid var(--gold); border-radius: 50%; opacity: 0.12; right: -70mm; bottom: -60mm; }
+  .ring2 { position: absolute; width: 140mm; height: 140mm; border: 1mm solid var(--gold); border-radius: 50%; opacity: 0.12; right: -45mm; bottom: -35mm; }
+  /* Timeline */
+  .tl { position: relative; margin: 3mm 0 4mm; }
+  .tl-months { display: grid; grid-template-columns: repeat(18, 1fr); font-size: 7.6pt; color: var(--muted); border-bottom: 1px solid var(--line); margin-bottom: 1mm; }
+  .tl-months div { text-align: center; padding-bottom: 1mm; border-right: 1px dotted var(--line); }
+  .tl-row { display: grid; grid-template-columns: repeat(18, 1fr); height: 7.5mm; margin-bottom: 1.2mm; align-items: center; }
+  .tl-bar { height: 6.4mm; border-radius: 1.2mm; color: #fff; font-size: 7.6pt; font-weight: bold; display: flex; align-items: center; padding: 0 2mm; white-space: nowrap; overflow: hidden; }
+  .tl-label { font-size: 8pt; font-weight: bold; color: var(--ink); }
+  .legend span { display: inline-block; margin-right: 4mm; font-size: 8pt; }
+  .legend i { display: inline-block; width: 3.5mm; height: 3.5mm; border-radius: 0.8mm; vertical-align: middle; margin-right: 1.2mm; }
+  .bar { height: 5mm; background: var(--gold-light); border-radius: 1mm; position: relative; overflow: hidden; }
+  .bar > i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--red); border-radius: 1mm; }
+  .kpi-row { display: grid; grid-template-columns: 3fr 2fr 1.2fr; gap: 2mm; align-items: center; margin-bottom: 1.6mm; font-size: 9pt; }
+  .arrowlist li { list-style: none; padding-left: 4.5mm; position: relative; }
+  .arrowlist li:before { content: "▸"; position: absolute; left: 0; color: var(--gold); }
+  .avoid { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+<!-- ===================== COVER ===================== -->
+<div class="page">
+  <div class="cover">
+    <div class="stars">✦</div>
+    <div class="ring"></div><div class="ring2"></div>
+    <div class="kicker">Performance-Marketing · Meta Ads (Facebook &amp; Instagram)</div>
+    <h1>Mazda-Autohaus</h1>
+    <div class="sub">Meta-Ads-Strategie bei 20 € Tagesbudget<br>Always-on-Plan für 12 Monate</div>
+    <div style="margin-top:14mm; max-width:125mm; font-size:11pt; line-height:1.5; color:#fff;">
+      600 € im Monat reichen für <b style="color:var(--gold)">eine Sache, die richtig läuft</b>: Fahrzeuganfragen aus dem eigenen Bestand.<br>
+      Dazu ein kleiner Monatsfokus für Werkstatt und Aktionen. Nicht mehr.<br>
+      Dieses Dokument zeigt Struktur, Zielgruppe, Motive, Kennzahlen und den 90-Tage-Start.
+    </div>
+    <div class="meta">
+      <div><b>Stand</b>04. September 2026 · Version 1.0</div>
+      <div><b>Budget</b>20 € / Tag · 600 € / Monat<br>7.300 € / Jahr</div>
+      <div><b>Annahmen</b>Einzelstandort, Neu- &amp; Gebrauchtwagen, Werkstatt, Einzugsgebiet 25 km</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 1. AUF EINEN BLICK ===================== -->
+<div class="page">
+  <div class="kicker">1 · Auf einen Blick</div>
+  <h2>Was 20 € am Tag können und was nicht</h2>
+
+  <div class="grid4" style="margin-bottom:4mm;">
+    <div class="card red"><div class="stat">600 €</div><div class="label">pro Monat</div></div>
+    <div class="card cream"><div class="stat">15–25</div><div class="label">Fahrzeuganfragen / Monat (Ziel)</div></div>
+    <div class="card cream"><div class="stat">≤ 30 €</div><div class="label">Kosten pro Anfrage (Ziel)</div></div>
+    <div class="card cream"><div class="stat">1–3</div><div class="label">zusätzliche Verkäufe / Monat</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card gold">
+      <h4>Die 5 Entscheidungen</h4>
+      <ol style="margin:0; padding-left:4.5mm;">
+        <li><b>Eine Hauptkampagne, immer an:</b> Fahrzeugkatalog-Anzeigen aus dem eigenen Bestand (Gebraucht- und Neuwagen) mit 14 € am Tag. Das ist der Kanal, der bei Autohäusern messbar Anfragen bringt.</li>
+        <li><b>Ein Monatsfokus mit 6 € am Tag:</b> Werkstatt-Aktion, Probefahrt-Modell oder Saisonangebot als WhatsApp-Kampagne. Jeden Monat ein Thema, nie zwei.</li>
+        <li><b>Nichts anderes.</b> Keine Reichweiten-, Seiten-Like- oder „Beitrag hervorheben“-Kampagnen. Sie fressen bei diesem Budget die Wirkung.</li>
+        <li><b>Anfragen zählen, nicht Klicks:</b> Pixel mit Lead-Ereignis auf der Fahrzeugseite und Instant-Formulare mit CRM-Anbindung. Jede Anfrage bekommt im Autohaus einen Status (Kontakt, Probefahrt, Kauf).</li>
+        <li><b>Hochfahren erst, wenn die Rechnung stimmt:</b> Liegt der Preis pro Anfrage unter 30 € und werden mindestens 10 % der Anfragen zu Verkäufen, geht das Budget auf 30–40 € am Tag.</li>
+      </ol>
+    </div>
+    <div>
+      <div class="card cream" style="margin-bottom:3mm;">
+        <h4>Warum Fahrzeugkatalog statt Image-Anzeigen</h4>
+        <ul class="small">
+          <li>Meta zeigt automatisch das passende Fahrzeug aus dem Bestand (Preis, Modell, Bild), ohne dass jemand jede Woche neue Motive baut.</li>
+          <li>Der Katalog lernt aus Website-Besuchern: Wer den CX-5 angesehen hat, sieht den CX-5 wieder (Retargeting ist eingebaut).</li>
+          <li>Kleine Budgets funktionieren, weil der Algorithmus nicht auf 50 Leads pro Woche angewiesen ist, sondern mit Fahrzeugaufrufen und Anfragen arbeitet.</li>
+        </ul>
+      </div>
+      <div class="card cream">
+        <h4>Was bei 20 € am Tag nicht geht</h4>
+        <ul class="small">
+          <li>Mehrere Zielgruppen oder Modelle in getrennten Anzeigengruppen testen.</li>
+          <li>Neuwagen-Markenaufbau. Das macht Mazda Deutschland bundesweit; das Autohaus kauft lokal die Nachfrage ab.</li>
+          <li>Tägliche Budgetwechsel. Jede Änderung über 20 % setzt das Lernen zurück.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3>Die Rechnung (Annahmen, bitte mit eigenen Zahlen ersetzen)</h3>
+  <table class="compact">
+    <thead><tr><th>Größe</th><th class="num">Wert</th><th>Herleitung</th></tr></thead>
+    <tbody>
+      <tr><td>Budget pro Monat</td><td class="num">600 €</td><td>20 € × 30 Tage</td></tr>
+      <tr><td>Kosten pro Fahrzeuganfrage (Meta, Automotive DE)</td><td class="num">20–35 €</td><td>Benchmark-Spanne für Katalog-Leads im Radius 25 km, erstes Quartal eher oben</td></tr>
+      <tr><td>Anfragen pro Monat</td><td class="num">≈ 15–25</td><td>420 € Katalogbudget ÷ 20–30 €; plus 30–50 WhatsApp-Gespräche aus dem Monatsfokus</td></tr>
+      <tr><td>Anfrage → Verkauf</td><td class="num">8–15 %</td><td>Branchenerfahrung Gebrauchtwagen-Onlineanfragen; hängt an Reaktionszeit &lt; 1 Stunde</td></tr>
+      <tr><td>Verkäufe pro Monat über Meta</td><td class="num">1–3</td><td>15–25 Anfragen × 8–15 %</td></tr>
+      <tr><td>Deckungsbeitrag pro Verkauf (Annahme)</td><td class="num">1.200–2.000 €</td><td>Gebrauchtwagen inkl. Finanzierung/Garantie; Werkstattkunde zusätzlich 300–500 € pro Jahr</td></tr>
+      <tr><td><b>Ergebnis</b></td><td class="num"><b>≈ 2–5 € pro 1 € Werbung</b></td><td>schon bei 1 Verkauf pro Monat ist das Budget zurückverdient</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===================== 2. KAMPAGNEN-STRUKTUR ===================== -->
+<div class="page">
+  <div class="kicker">2 · Kampagnen-Struktur</div>
+  <h2>Zwei Kampagnen, 14 € + 6 €</h2>
+
+  <table class="compact">
+    <thead><tr><th style="width:16%">Kampagne</th><th style="width:15%">Ziel / Optimierung</th><th style="width:22%">Zielgruppe</th><th style="width:24%">Anzeigen</th><th style="width:8%">Budget</th><th>KPI</th></tr></thead>
+    <tbody>
+      <tr><td><b>K1 · Fahrzeuge</b><br><span class="small muted">immer an</span></td><td>Umsatz → Advantage+ Katalog-Anzeigen, Optimierung „Lead“ (Anfrage auf Fahrzeugseite). Bis 30 Leads im Konto: „Content anzeigen“ als Zwischenschritt</td><td>Radius 25 km um das Autohaus, 25–65, Advantage+ Zielgruppe (breit). Retargeting automatisch über Katalog: Fahrzeug angesehen 30 Tage</td><td>Dynamische Karussells aus dem Bestand: Modell, Preis oder Rate, km, Erstzulassung. 2 Rahmen-Varianten (Preis / Rate). Primärtext mit Autohaus-Name und Standort</td><td class="num">14 €/Tag</td><td>Kosten pro Anfrage ≤ 30 €, ≥ 4 Anfragen/Woche, Fahrzeugaufrufe ≥ 300/Woche</td></tr>
+      <tr><td><b>K2 · Monatsfokus</b><br><span class="small muted">Thema wechselt monatlich</span></td><td>Interaktion → Nachrichten (WhatsApp / Messenger) mit Fragen-Vorlage. Alternativ Leads → Instant-Formular bei Probefahrt-Themen</td><td>Radius 20 km, 25–65. Bei Werkstattthemen zusätzlich Custom Audience „Website-Besucher 180 Tage“ und Kundenliste (E-Mail-Hash)</td><td>1 Video 15 s aus dem Autohaus (Handy reicht) + 1 statisches Motiv mit Angebot. Wechsel jeden Monat</td><td class="num">6 €/Tag</td><td>Kosten pro Gespräch ≤ 5 €, ≥ 8 Gespräche/Woche, Terminquote ≥ 30 %</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid2">
+    <div class="card cream">
+      <h4>Einstellungen K1 · Fahrzeuge</h4>
+      <ul class="small">
+        <li><b>Katalog:</b> Fahrzeug-Katalog im Commerce Manager, Feed aus mobile.de / AutoScout24-Export oder Händler-DMS (viele Anbieter liefern den Meta-Feed direkt). Täglich aktualisieren, verkaufte Fahrzeuge fallen automatisch raus.</li>
+        <li><b>Produktset:</b> alle Fahrzeuge unter 45.000 € (breiteste Nachfrage). Neuwagen-Bestand und Tageszulassungen mit rein.</li>
+        <li><b>Kreativ-Optimierung:</b> Advantage+ Kreativ für Katalog an, Rahmen mit Autohaus-Logo, Preisaufkleber „ab … €“ oder Rate.</li>
+        <li><b>Ziel-URL:</b> die Fahrzeugdetailseite auf der eigenen Website, nicht mobile.de. Nur so zählt der Pixel die Anfrage.</li>
+        <li><b>Platzierungen:</b> Advantage+; Audience Network ausschließen (billige Klicks ohne Anfragen).</li>
+        <li><b>Attribution:</b> 7 Tage Klick / 1 Tag View.</li>
+      </ul>
+    </div>
+    <div class="card cream">
+      <h4>Einstellungen K2 · Monatsfokus</h4>
+      <ul class="small">
+        <li><b>WhatsApp Business</b> mit dem Facebook-Konto verbinden; Begrüßung + 3 Fragen-Vorschläge („Termin Räderwechsel“, „Preis anfragen“, „Probefahrt“).</li>
+        <li><b>Antwortzeit:</b> unter 15 Minuten in Öffnungszeiten, sonst automatische Nachricht mit Rückrufzusage. Anzeigen nur zu Öffnungszeiten ausliefern (Zeitplan im Lebenszeitbudget) oder Autoantwort aktiv halten.</li>
+        <li><b>Thema pro Monat</b> nach Kalender (Abschnitt 4). Motiv am 1. des Monats tauschen, nie mitten im Monat.</li>
+        <li><b>Kundenliste:</b> Werkstattkunden (E-Mail/Telefon, DSGVO-konform mit Einwilligung) als Custom Audience hochladen; bei Werkstattthemen 50 % der Ausspielung an Bestandskunden.</li>
+        <li><b>Frequenz:</b> max. 3 pro Woche; darüber Motiv tauschen.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout warn small"><b>Pflicht bei Fahrzeugwerbung:</b> Neuwagen-Anzeigen mit Preis oder Modell brauchen die Pkw-EnVKV-Angaben (Verbrauch, CO₂-Emissionen, CO₂-Klasse nach WLTP). Leasing- oder Finanzierungs-Anzeigen brauchen das repräsentative Beispiel nach PAngV (Sollzins, effektiver Jahreszins, Laufzeit, Anzahlung, Gesamtbetrag, Anbieter). Gebrauchtwagen: Angaben zu Verbrauch und CO₂ ebenfalls, wenn das Fahrzeug jünger als die Grenze der Verordnung ist. Vor Start mit Mazda-Händlerrichtlinien und der Rechtsabteilung bzw. Mazda-Händlermarketing abstimmen; Mazda stellt CI-konforme Vorlagen im Händlerportal bereit.</div>
+</div>
+
+<!-- ===================== 3. ZIELGRUPPEN & MOTIVE ===================== -->
+<div class="page">
+  <div class="kicker">3 · Zielgruppen &amp; Motive</div>
+  <h2>Wer kauft, was sie sehen sollen</h2>
+
+  <table class="compact">
+    <thead><tr><th style="width:18%">Zielgruppe</th><th style="width:24%">Was sie bewegt</th><th style="width:28%">Botschaft</th><th>Kampagne · Motiv</th></tr></thead>
+    <tbody>
+      <tr><td><b>Gebrauchtwagen-Sucher</b> 25–55, aktiv auf mobile.de und AutoScout24</td><td>Preis, Kilometer, Garantie, „vertrauenswürdiger Händler in der Nähe statt Privatverkauf“</td><td>„Geprüft, mit Garantie, 15 Minuten von dir. Anfrage in 30 Sekunden.“</td><td>K1 Katalog-Karussell, Rahmen mit Preis + Garantie-Hinweis</td></tr>
+      <tr><td><b>Familien &amp; Pendler</b> 30–50, Interesse SUV/Kombi</td><td>Monatsrate statt Kaufpreis, Platz, Verbrauch, Probefahrt ohne Verkaufsdruck</td><td>„CX-5 oder CX-30 am Wochenende Probe fahren, ohne Termin-Marathon.“</td><td>K1 Rahmen „ab … € / Monat“; K2 Probefahrt-Monate</td></tr>
+      <tr><td><b>Bestandskunden &amp; Mazda-Fahrer</b> 30–70 im Radius</td><td>Werkstatt-Termin ohne Warten, faire Preise, Räder-Einlagerung, Hol- und Bringservice</td><td>„Räderwechsel in 30 Minuten, Kaffee inklusive. Termin per WhatsApp.“</td><td>K2 Werkstatt-Monate, Kundenliste + Website-Besucher</td></tr>
+      <tr><td><b>Fahrer 55+</b> mit Kaufkraft, Facebook-Feed</td><td>Verlässlichkeit, persönlicher Ansprechpartner, Inzahlungnahme, Neuwagen mit Garantie</td><td>„Ihr Mazda-Händler vor Ort: ein Ansprechpartner von der Probefahrt bis zur Inspektion.“</td><td>K1 Neuwagen-Produktset; K2 Inzahlungnahme-Monat</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid2">
+    <div class="card cream">
+      <h4>Motive, die ein Autohaus selbst produzieren kann</h4>
+      <ul class="small">
+        <li><b>Fahrzeug-Walkaround</b> 15 s, Handy, hochkant: Außen, Innenraum, Kofferraum, ein Satz vom Verkäufer. Pro Woche 1 Fahrzeug.</li>
+        <li><b>Team-Motiv:</b> Verkäufer oder Serviceberater mit Namen vor dem Autohaus. Lokale Gesichter schlagen Hersteller-Renderings.</li>
+        <li><b>Angebots-Karte</b> statisch 4:5: Aktion, Preis, Zeitraum, Pflichtangaben, Logo. Vorlage einmal bauen, monatlich austauschen.</li>
+        <li><b>Werkstatt-Einblick:</b> Räderwechsel im Zeitraffer, Kundenlounge, Hol- und Bringservice-Auto.</li>
+        <li><b>Bewertungen:</b> Google-Rezensionen als Zitat-Motiv (mit Einwilligung, Vorname + Ort).</li>
+      </ul>
+    </div>
+    <div class="card cream">
+      <h4>Textbausteine (≤ 125 Zeichen vor „Mehr“)</h4>
+      <ul class="small arrowlist">
+        <li>Geprüfte Gebrauchtwagen mit Garantie, 15 Minuten von [Stadt]. Anfrage in 30 Sekunden, Antwort noch heute.</li>
+        <li>Mazda CX-5 ab [Rate] € im Monat. Probefahrt am Samstag? Einfach anfragen.</li>
+        <li>Räderwechsel ab [Preis] €, Einlagerung möglich. Termin per WhatsApp, Antwort in Minuten.</li>
+        <li>Dein altes Auto zählt: Inzahlungnahme mit fairer Bewertung, direkt vor Ort in [Stadt].</li>
+        <li>Wintercheck vor dem ersten Frost: Batterie, Licht, Reifen. [Preis] € bei [Autohaus].</li>
+      </ul>
+      <p class="tiny muted">Eckige Klammern durch echte Werte ersetzen; Preise und Raten nur mit Pflichtangaben.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 4. JAHRESKALENDER & 90 TAGE ===================== -->
+<div class="page">
+  <div class="kicker">4 · Jahreskalender &amp; 90-Tage-Start</div>
+  <h2>Ein Thema pro Monat für K2</h2>
+
+  <table class="compact">
+    <thead><tr><th style="width:12%">Monat</th><th style="width:26%">Thema K2 (6 €/Tag)</th><th style="width:14%">Ziel</th><th>Warum jetzt</th></tr></thead>
+    <tbody>
+      <tr><td>Sep 2026</td><td>Start: nur K1 Fahrzeuge (volle 20 €), Setup K2</td><td>–</td><td>Katalog braucht 3–4 Wochen Daten, bevor das Budget geteilt wird</td></tr>
+      <tr><td>Okt</td><td>Räderwechsel + Wintercheck</td><td>WhatsApp-Termin</td><td>Saisonstart Winterreifen, Bestandskunden aktivieren</td></tr>
+      <tr><td>Nov</td><td>Jahresend-Angebote, Tageszulassungen, Inzahlungnahme</td><td>Anfrage (Formular)</td><td>Händler-Zielerreichung, Kunden wollen vor Jahreswechsel zulassen</td></tr>
+      <tr><td>Dez</td><td>Gutschein Werkstatt / Zubehör als Geschenk, Winter-Ready-Paket</td><td>WhatsApp</td><td>Geschenkzeit, schwache Verkaufswochen überbrücken</td></tr>
+      <tr><td>Jan 2027</td><td>Probefahrt-Monat CX-5 / CX-60 (Allrad, Winter)</td><td>Probefahrt-Formular</td><td>Neujahrs-Kaufabsicht, Winterfahrten als Argument</td></tr>
+      <tr><td>Feb</td><td>Gebrauchtwagen-Wochen: „unter 15.000 €“ Produktset</td><td>Anfrage</td><td>Steuerrückzahlungen, Preissensible Käufer</td></tr>
+      <tr><td>Mär</td><td>Sommerräder + Frühjahrscheck + Klimaservice</td><td>WhatsApp-Termin</td><td>Räderwechsel-Saison</td></tr>
+      <tr><td>Apr</td><td>MX-5 / Cabrio-Saison oder Mazda-Aktionsmodell</td><td>Probefahrt</td><td>Emotionales Modell, Frühjahr</td></tr>
+      <tr><td>Mai</td><td>Familien-SUV-Monat: CX-30 / CX-80, Rate im Fokus</td><td>Anfrage</td><td>Ferienplanung, Familienkäufe</td></tr>
+      <tr><td>Jun</td><td>Urlaubscheck + Hol- und Bringservice</td><td>WhatsApp-Termin</td><td>Sommerferien NRW ab Anfang Juli</td></tr>
+      <tr><td>Jul</td><td>Gebrauchtwagen: Erstwagen für Fahranfänger, Kleinwagen</td><td>Anfrage</td><td>Führerschein-Saison, Ausbildungsstart</td></tr>
+      <tr><td>Aug</td><td>Sommerschlussverkauf Bestand / Neuwagen-Lagerfahrzeuge</td><td>Anfrage</td><td>Modelljahreswechsel, Bestand räumen vor Herbst</td></tr>
+    </tbody>
+  </table>
+
+  <h3>90-Tage-Start</h3>
+  <div class="grid3">
+    <div class="card cream">
+      <h4>Tage 1–14 · Setup</h4>
+      <ul class="check small">
+        <li>Business-Manager, Werbekonto, Zahlungsmethode, Domain verifiziert</li>
+        <li>Pixel + Conversions API auf der Website (Händler-Website-Anbieter fragen), Ereignisse: Fahrzeug angesehen, Lead, Kontakt</li>
+        <li>Fahrzeug-Katalog mit täglichem Feed, Produktset „bis 45.000 €“</li>
+        <li>WhatsApp Business verbunden, Autoantwort, Fragen-Vorlagen</li>
+        <li>Kundenliste (Einwilligung prüfen) als Custom Audience</li>
+        <li>3 Rahmen-Vorlagen, 1 Angebots-Karte, 2 Walkaround-Videos</li>
+        <li>Anfragen-Tabelle im CRM: Quelle „Meta“, Status, Verkauf ja/nein</li>
+      </ul>
+    </div>
+    <div class="card cream">
+      <h4>Tage 15–60 · Lernen</h4>
+      <ul class="small">
+        <li>K1 startet mit 20 €/Tag. Keine Änderungen für 14 Tage.</li>
+        <li>Ab Tag 30: K2 mit 6 €/Tag (Oktober-Thema), K1 auf 14 €.</li>
+        <li>Wöchentlich 20 Minuten: Anfragen, Kosten pro Anfrage, Fahrzeugaufrufe, Antwortzeit.</li>
+        <li>Jede Anfrage innerhalb einer Stunde beantworten. Das entscheidet mehr als jede Einstellung.</li>
+        <li>Tag 45: Rahmen-Variante Preis vs. Rate vergleichen, Verlierer abschalten.</li>
+      </ul>
+    </div>
+    <div class="card cream">
+      <h4>Tage 61–90 · Entscheiden</h4>
+      <ul class="small">
+        <li>Bilanz: Anfragen, Probefahrten, Verkäufe, Werkstatttermine aus Meta.</li>
+        <li>Kosten pro Anfrage ≤ 30 € und Verkaufsquote ≥ 10 % → Budget auf 30 €/Tag (K1 22 €, K2 8 €).</li>
+        <li>Kosten pro Anfrage &gt; 45 € → Produktset prüfen (zu teuer? zu wenig Fahrzeuge?), Ziel-URL und Formular testen, Radius auf 20 km.</li>
+        <li>Weniger als 10 Anfragen in 60 Tagen → Tracking-Fehler ausschließen, bevor irgendetwas anderes geändert wird.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 5. KPIs, REGELN, OFFENE PUNKTE ===================== -->
+<div class="page">
+  <div class="kicker">5 · Kennzahlen, Regeln &amp; offene Punkte</div>
+  <h2>Woran das Autohaus jeden Montag erkennt, ob es läuft</h2>
+
+  <div class="grid2">
+    <div>
+      <table class="compact">
+        <thead><tr><th>Kennzahl</th><th class="num">Ziel</th><th>Rot ab</th></tr></thead>
+        <tbody>
+          <tr><td>Kosten pro Fahrzeuganfrage (K1)</td><td class="num">≤ 30 €</td><td>&gt; 45 € über 3 Wochen</td></tr>
+          <tr><td>Fahrzeuganfragen pro Woche</td><td class="num">≥ 4</td><td>&lt; 2</td></tr>
+          <tr><td>Fahrzeugaufrufe pro Woche (Pixel)</td><td class="num">≥ 300</td><td>&lt; 150</td></tr>
+          <tr><td>Kosten pro WhatsApp-Gespräch (K2)</td><td class="num">≤ 5 €</td><td>&gt; 9 €</td></tr>
+          <tr><td>Terminquote aus Gesprächen</td><td class="num">≥ 30 %</td><td>&lt; 15 % (Antwortzeit prüfen)</td></tr>
+          <tr><td>Antwortzeit auf Anfragen</td><td class="num">&lt; 1 Std.</td><td>&gt; 4 Std.</td></tr>
+          <tr><td>CPM Radius 25 km</td><td class="num">8–14 €</td><td>&gt; 20 €</td></tr>
+          <tr><td>Frequenz (7 Tage)</td><td class="num">≤ 3</td><td>&gt; 5</td></tr>
+          <tr><td>Verkäufe mit Quelle Meta (Quartal)</td><td class="num">≥ 3</td><td>0 bei ≥ 40 Anfragen</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="margin-top:0;">Regeln</h4>
+      <ul class="small">
+        <li><b>Budget nie mehr als 20 % auf einmal ändern.</b> Erhöhungen nur montags, frühestens alle 2 Wochen.</li>
+        <li><b>K1 wird nie pausiert</b>, auch nicht in ruhigen Wochen. Der Katalog verliert sonst die Lernhistorie.</li>
+        <li><b>K2 wechselt am 1. des Monats</b> das Thema, nicht die Struktur.</li>
+        <li><b>Keine Anzeige ohne Pflichtangaben</b> bei Preis, Rate oder Neuwagen-Modell.</li>
+        <li><b>Jede Anfrage bekommt einen Status im CRM.</b> Ohne diese Rückmeldung ist jede Optimierung Raten.</li>
+        <li><b>Motive tauschen</b>, wenn Frequenz &gt; 5 oder Klickrate um 30 % fällt.</li>
+      </ul>
+      <h4>Wochenroutine (20 Minuten, montags)</h4>
+      <ul class="small">
+        <li>Anfragen der Woche mit CRM abgleichen, Kosten pro Anfrage notieren.</li>
+        <li>Antwortzeiten prüfen, offene WhatsApp-Chats schließen.</li>
+        <li>Feed-Fehler im Commerce Manager prüfen (abgelehnte Fahrzeuge).</li>
+        <li>Nur eingreifen, wenn eine Rot-Schwelle 3 Wochen in Folge gerissen wird.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Offene Punkte, die den Plan konkret machen</h3>
+  <table class="compact">
+    <thead><tr><th style="width:36%">Frage</th><th>Warum es zählt</th></tr></thead>
+    <tbody>
+      <tr><td>Standort und Einzugsgebiet (Stadt, Wettbewerber-Mazda-Händler im Umkreis)</td><td>Bestimmt Radius und ob 25 km sinnvoll ist oder überlappt</td></tr>
+      <tr><td>Schwerpunkt: Gebrauchtwagen, Neuwagen oder Werkstatt?</td><td>Verschiebt die Aufteilung 14/6 € bis hin zu 10/10 € bei Werkstatt-Fokus</td></tr>
+      <tr><td>Website-System und Fahrzeugbörse (eigene Fahrzeugseiten mit Anfrageformular?)</td><td>Ohne eigene Fahrzeugseiten mit Pixel läuft K1 nur auf „Content anzeigen“ oder per Instant-Formular</td></tr>
+      <tr><td>Bestandsgröße (Anzahl Fahrzeuge, Preisspanne)</td><td>Unter 20 Fahrzeugen lohnt der Katalog weniger; dann Einzelfahrzeug-Anzeigen mit Instant-Formular</td></tr>
+      <tr><td>CRM / Lead-Management und Antwortzeit heute</td><td>Der größte Hebel liegt nach dem Klick</td></tr>
+      <tr><td>Mazda-Händlermarketing: Werbekostenzuschuss, CI-Vorlagen, Co-Op-Budget</td><td>Oft gibt es Zuschüsse, die das Budget verdoppeln, wenn CI-Vorgaben eingehalten werden</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout small"><b>Zusammengefasst:</b> 20 € am Tag sind kein Marketing-Budget, sondern ein Anfragen-Budget. Alles wird darauf ausgerichtet, dass jede Woche vier bis sechs Menschen im Umkreis ein konkretes Fahrzeug oder einen Werkstatttermin anfragen und innerhalb einer Stunde eine Antwort bekommen. Wenn das drei Monate stabil läuft, ist die Skalierung eine Rechenaufgabe, keine Wette.</div>
+</div>
+
+</body>
+</html>
